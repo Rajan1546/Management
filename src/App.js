@@ -5,7 +5,8 @@ import Login from './Pages/Login';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PendingActions from './Pages/PendingActions';
 import Parking from './Pages/Parking';
-import FrontDeskPage from './Pages/FrontDeskPage';
+// import FrontDeskPage from './Pages/FrontDeskPage';
+import Forms from './Pages/Forms'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Route path="/arriving" element={<InOut />} />
       <Route path="/pendingactions" element={<PendingActions />} />
       <Route path='/park' element={<Parking/>}/>
-      <Route path='forms' element={<FrontDeskPage/>}/>
+      <Route path='forms' element={<Forms/>}/>
       </Routes>
     </Router>
   );
