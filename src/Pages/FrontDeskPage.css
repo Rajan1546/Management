@@ -1,0 +1,64 @@
+.frontdesk-page-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .form-nav{
+    height: 15%;
+  }
+  
+  .form-container {
+    width: 100%;
+    margin-top: 5%;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 85px;
+    height: 80px;
+  }
+  
+  .logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+.car-button,
+.visitor-button {
+  width: 45%;
+  margin: 2.5%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.car-button:hover,
+.visitor-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+  /* .image-container {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; 
+  } 
+  .form-img{
+    height: auto;
+    width: 100%;
+  }
+  */
+
+
+  

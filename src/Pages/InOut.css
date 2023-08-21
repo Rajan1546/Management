@@ -1,0 +1,92 @@
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.avatar-container {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.nav-container {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  border: 1px solid rgba(255, 255, 255, 255) !important;
+  color: #ffffff !important;
+}
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  color: #ffffff !important;
+}
+.svg-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adjust opacity here */
+  z-index: 1;
+  /* Above the video, but behind the content */
+}
+
+/* Additional styling for video to cover the container */
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.top-left-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  color: white;
+  
+}
+
+.top-right-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  color: white;
+
+}
