@@ -39,11 +39,11 @@ export const mainListItems = (setSelectedComponent) => (
       </ListItemIcon>
       <ListItemText primary="Vehicles" />
     </ListItemButton>
-    <ListItemButton onClick={() => setSelectedComponent('parking')}Linking>
+    <ListItemButton onClick={() => setSelectedComponent('Docks')}Linking>
       <ListItemIcon>
         <img src={car} alt='car' width={'28px'}/>
       </ListItemIcon>
-      <ListItemText primary="Parkings" />
+      <ListItemText primary="Docks" />
     </ListItemButton>
   </React.Fragment>
 );

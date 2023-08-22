@@ -37,7 +37,7 @@ const DashboardContainer = () => {
                   height: 240,
                 }}
               >
-                Hello
+                Total Entry
               </Paper>
             </Grid>
             <Grid item xs={12} md={8} lg={3}>
@@ -49,7 +49,7 @@ const DashboardContainer = () => {
                   height: 240,
                 }}
               >
-                Hello
+                Total Visitor
               </Paper>
             </Grid>
             <Grid item xs={12} md={8} lg={3}>
@@ -61,7 +61,7 @@ const DashboardContainer = () => {
                   height: 240,
                 }}
               >
-                Hello
+                Total Vehicles
               </Paper>
             </Grid>
             {/* Recent Deposits */}
@@ -74,7 +74,7 @@ const DashboardContainer = () => {
                   height: 240,
                 }}
               >
-                world
+                Add Guest
                 {/* <Deposits /> */}
               </Paper>
             </Grid>
@@ -82,7 +82,7 @@ const DashboardContainer = () => {
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
                 {/* <Orders /> */}
-                Dubey
+                Other Things
               </Paper>
             </Grid>
           </Grid>

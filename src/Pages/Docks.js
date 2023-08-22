@@ -1,8 +1,8 @@
 import React from 'react';
-import './Parking.css'; 
+import './Docks.css'; 
 import Container from "@mui/material/Container";
 
-const Parking = () => {
+const Docks = () => {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
     <div className="wrap">
@@ -52,4 +52,4 @@ const Parking = () => {
   );
 }
 
-export default Parking;
+export default Docks;

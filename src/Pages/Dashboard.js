@@ -22,7 +22,7 @@ import gati from '../Images/gati.png'
 import './Dashboard.css' ;
 import DashboardContainer from "../Components/DashboardContainer ";
 import PendingActions from "./PendingActions";
-import Parking from "./Parking";
+import Docks from "./Docks";
 
 
 // function Copyright(props) {
@@ -105,8 +105,8 @@ export default function Dashboard() {
         return <DashboardContainer />;
       case 'pendingActions':
         return <PendingActions />;
-      case 'parking':
-        return <Parking />;
+      case 'Docks':
+        return <Docks />;
       // Add more cases for other components if needed
       default:
         return <DashboardContainer />;
