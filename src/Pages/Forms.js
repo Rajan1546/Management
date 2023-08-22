@@ -17,6 +17,8 @@ import Tab from "@mui/material/Tab";
 import "./Forms.css";
 import VehicleForm from "../Components/VehicleForm";
 import { useNavigate } from "react-router-dom";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 function Copyright() {
   return (
@@ -98,8 +100,22 @@ export default function Forms() {
         >
           <AppBar position="static" style={{ backgroundColor: "transparent" }}>
             <Tabs value={activeTab} onChange={handleTabType}>
-              <Tab label="Vehicle" />
-              <Tab label="Visitor" />
+              <Tab
+                label={
+                  <span>
+                    Vehicle
+                    <LocalShippingOutlinedIcon style={{ marginLeft: 12 }} />
+                  </span>
+                }
+              />
+              <Tab
+                label={
+                  <span>
+                    Visitor
+                    <AccountCircleOutlinedIcon style={{ marginLeft: 12 }} />
+                  </span>
+                }
+              />
             </Tabs>
           </AppBar>
         </Grid>
@@ -113,7 +129,7 @@ export default function Forms() {
           <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
               variant="contained"
-              onClick={handleNext}  
+              onClick={handleNext}
               sx={{ mt: 3, ml: 1 }}
             >
               Next
