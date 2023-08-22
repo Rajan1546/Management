@@ -20,13 +20,13 @@ import { useNavigate } from "react-router-dom";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
-function Copyright() {
+function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
       <Link color="inherit" href="https://werqlabs.com/">
         Made with
-        <FavoriteIcon sx={{ height: 15, width: 15, color: red[500] }} />
+        <FavoriteIcon sx={{ height: 15, width: 15, color: red[500] , verticalAlign: 'middle' }} />
         by WerqLabs
       </Link>{" "}
       {new Date().getFullYear()}
@@ -43,17 +43,6 @@ export default function Forms() {
   const handleTabType = (event, newValue) => {
     setActiveTab(newValue);
   };
-
-  // function getStepContent(step) {
-  //   switch (step) {
-  //     case 0:
-  //       return <VisitorForm />;
-  //     case 1:
-  //       return <VehicleForm />;
-  //     default:
-  //       return <VehicleForm />;
-  //   }
-  // }
 
   const renderFormComponent = () => {
     switch (activeTab) {
@@ -104,7 +93,7 @@ export default function Forms() {
                 label={
                   <span>
                     Vehicle
-                    <LocalShippingOutlinedIcon style={{ marginLeft: 12 }} />
+                    <LocalShippingOutlinedIcon style={{ marginLeft: 12 , verticalAlign: 'middle' }} />
                   </span>
                 }
               />
@@ -112,7 +101,7 @@ export default function Forms() {
                 label={
                   <span>
                     Visitor
-                    <AccountCircleOutlinedIcon style={{ marginLeft: 12 }} />
+                    <AccountCircleOutlinedIcon style={{ marginLeft: 12 , verticalAlign: 'middle'  }} />
                   </span>
                 }
               />

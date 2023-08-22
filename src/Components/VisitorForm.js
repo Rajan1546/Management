@@ -17,6 +17,19 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 export default function VisitorForm() {
+  const [avatarSrc, setAvatarSrc] = React.useState(
+    "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+  );
+  
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Handle the selected file here
+      // For example, you can set it as the source for the Avatar image
+      const imageUrl = URL.createObjectURL(file);
+      setAvatarSrc(imageUrl); // Assuming you have a state for the Avatar source
+    }
+  };
   return (
     <React.Fragment>
       <Typography component="h1" variant="h5" align="center" gutterBottom>
@@ -31,9 +44,20 @@ export default function VisitorForm() {
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           badgeContent={
             //   <SmallAvatar alt="Remy Sharp" src={ <PhotoCameraFrontOutlinedIcon color="success" />} />
+            // <SmallAvatar>
+            //   <PhotoCameraFrontOutlinedIcon color="grey" />
+            // </SmallAvatar>
             <SmallAvatar>
+            <label htmlFor="fileInput">
               <PhotoCameraFrontOutlinedIcon color="grey" />
-            </SmallAvatar>
+            </label>
+            <input
+              id="fileInput"
+              type="file"
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
+          </SmallAvatar>
             //   <PhotoCameraFrontOutlinedIcon color="success" />
           }
         >
