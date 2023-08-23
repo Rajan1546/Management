@@ -26,7 +26,7 @@ export default function StaffTable() {
         <TableHead>
           <TableRow>
             <TableCell>Image</TableCell>
-            <TableCell>Calories</TableCell>
+            <TableCell>Name</TableCell>
             <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell>
             <TableCell align="right">Protein&nbsp;(g)</TableCell>
