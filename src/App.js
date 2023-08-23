@@ -9,6 +9,7 @@ import Parking from './Pages/Docks';
 import Forms from './Pages/Forms'
 import BadgeAvatars from './Components/Icon';
 import ConfirmationBill from './Pages/ConfrimationBill';
+// import Box from './Components/Box';
 
 function App() {
   return (

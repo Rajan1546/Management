@@ -5,9 +5,16 @@ import checkin from '../Images/check-in.png';
 import hotel from '../Images/hotel.png'
 import back from '../Images/back.png';
 import logout from '../Images/logout.png'
+import { useNavigate } from 'react-router-dom';
 import './InOut.css';
 
 function InOut() {
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleCheckInClick = () => {
+    // Navigate to "/forms" when Check In button is clicked
+    navigate('/forms');
+  };
   return (
     <div className="video-container"> 
     <div className='nav-container'>
@@ -24,7 +31,7 @@ function InOut() {
         </Avatar>
       </div>
       <div className="btn-container">
-      <Button variant="outlined" endIcon={<img src={checkin} alt='CheckIn' width={'50px'}/>}>
+      <Button variant="outlined" endIcon={<img src={checkin} alt='CheckIn' width={'50px'} />} onClick={handleCheckInClick}>
       Check In
       </Button>
         <Button variant="outlined" endIcon={<img src={hotel} alt='CheckOut' width={'50px'}/>}>

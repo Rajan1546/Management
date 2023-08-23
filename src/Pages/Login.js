@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red } from "@mui/material/colors";
+import { useNavigate } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -53,19 +54,28 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function Login() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = data.get("email");
     const password = data.get("password");
-
+    
     if (email === "admin" && password === "admin") {
       console.log("Login successful");
+      navigate('/dashboard');
       // Add logic to navigate to the dashboard or perform other actions upon successful login
     } else {
       console.log("Login failed");
     }
     
+    if (email === "user" && password === "user") {
+      console.log("Login successful");
+      navigate('/arriving');
+      // Add logic to navigate to the dashboard or perform other actions upon successful login
+    } else {
+      console.log("Login failed");
+    }
   };
 
   return (

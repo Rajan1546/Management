@@ -6,6 +6,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red } from "@mui/material/colors";
+import StaffTable from "./StaffTable";
  
 function Copyright(props) {
   return (
@@ -27,7 +28,7 @@ const DashboardContainer = () => {
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={3}>
+            <Grid item xs={6} md={3} lg={3}>
               <Paper
                 sx={{
                   p: 2,
@@ -39,7 +40,7 @@ const DashboardContainer = () => {
                 Total Entry
               </Paper>
             </Grid>
-            <Grid item xs={12} md={8} lg={3}>
+            <Grid item xs={6} md={3} lg={3}>
               <Paper
                 sx={{
                   p: 2,
@@ -51,7 +52,7 @@ const DashboardContainer = () => {
                 Total Visitor
               </Paper>
             </Grid>
-            <Grid item xs={12} md={8} lg={3}>
+            <Grid item xs={6} md={3} lg={3}>
               <Paper
                 sx={{
                   p: 2,
@@ -64,7 +65,7 @@ const DashboardContainer = () => {
               </Paper>
             </Grid>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={6} md={3} lg={3}>
               <Paper
                 sx={{
                   p: 2,
@@ -81,7 +82,7 @@ const DashboardContainer = () => {
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
                 {/* <Orders /> */}
-                Other Things
+                <StaffTable/>
               </Paper>
             </Grid>
           </Grid>
