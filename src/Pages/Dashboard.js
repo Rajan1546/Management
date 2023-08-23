@@ -23,25 +23,8 @@ import './Dashboard.css' ;
 import DashboardContainer from "../Components/DashboardContainer ";
 import PendingActions from "./PendingActions";
 import Docks from "./Docks";
-
-
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="#">
-//         WerqLabs
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
+import VisitorTable from "./VisitorTable";
+import VehicleTable from "./VehicleTable";
 
 const drawerWidth = 240;
 
@@ -105,6 +88,10 @@ export default function Dashboard() {
         return <DashboardContainer />;
       case 'pendingActions':
         return <PendingActions />;
+        case 'visitors':
+        return <VisitorTable />;
+        case 'vehicles':
+        return <VehicleTable />;
       case 'Docks':
         return <Docks />;
       // Add more cases for other components if needed
@@ -199,9 +186,6 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-        {/* <DashboardContainer />
-        <PendingActions/>
-        <Parking/> */}
         
         {renderSelectedComponent()}
         </Box>
