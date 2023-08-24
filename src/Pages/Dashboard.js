@@ -70,7 +70,7 @@ const Drawer = styled(MuiDrawer, {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      width: theme.spacing(7),
+      width: theme.spacing(0),
       [theme.breakpoints.up("sm")]: {
         width: theme.spacing(9),
       },
@@ -87,17 +87,12 @@ export default function Dashboard() {
   const theme = useTheme();
   const [isSmallScreenDrawerOpen, setIsSmallScreenDrawerOpen] =
     React.useState(false);
-  // const [isMainDrawerOpen, setIsMainDrawerOpen] = React.useState(true);
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  // const toggleMainDrawer = () => {
-  //   setIsMainDrawerOpen(!isMainDrawerOpen);
-  // };
+  
   const [selectedComponent, setSelectedComponent] = React.useState("dashboard");
-  
-  
   
 
   const renderSelectedComponent = () => {
@@ -119,15 +114,18 @@ export default function Dashboard() {
   };
 
   React.useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < theme.breakpoints.values.sm) {
-        setIsSmallScreenDrawerOpen(true);
-      } else {
-        setIsSmallScreenDrawerOpen(false);
-      }
-    };
+  //   const handleResize = () => {
+  //     setIsSmallScreen(window.innerWidth < theme.breakpoints.values.sm);
+  //   };
 
-    // Initial check
+  const handleResize = () => {
+    if (window.innerWidth < theme.breakpoints.values.sm) {
+      setIsSmallScreenDrawerOpen(true);
+    } else {
+      setIsSmallScreenDrawerOpen(false);
+    }
+  };
+  // Initial check
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -136,6 +134,10 @@ export default function Dashboard() {
       window.removeEventListener("resize", handleResize);
     };
   }, [theme.breakpoints.values.sm]);
+
+  // const drawerStyles = {
+  //   width: isSmallScreen && !open ? "0px" : "240px", // Adjust width based on open status and screen size
+  // };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -186,6 +188,10 @@ export default function Dashboard() {
         <Drawer
           variant="permanent"
           open={open}
+          // classes={{
+          //   paper: "custom-drawer-paper", // Apply the custom class name to the paper element
+          // }}
+          // style={drawerStyles}
           // classes={{ paper: classes.customDrawerPaper }} 
           sx={{
             position: isSmallScreenDrawerOpen ? "absolute" : "static", // Change position based on small screen drawer status
@@ -233,23 +239,27 @@ export default function Dashboard() {
             </IconButton>
           </Toolbar>
           <Divider />
-          {/* <List
+          <List
             component="nav"
             sx={{
               width: "100%",
               overflowX: "hidden",
-              maxHeight: isSmallScreenDrawerOpen ? "100%" : 0,
-              transition: "max-height 0.3s ease-in-out",
+              // maxHeight: isSmallScreenDrawerOpen ? "100%" : 0,
+              // transition: "max-height 0.3s ease-in-out",
             }}
           >
             {mainListItems(setSelectedComponent)}
-          </List> */}
-          <List component="nav">
-          {mainListItems(setSelectedComponent)}
-             {/*{mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems} */}
           </List>
+          {/*<List component="nav">
+          {mainListItems(setSelectedComponent)}
+             {mainListItems}
+            <Divider sx={{ my: 1 }} />
+            {secondaryListItems} 
+          </List>*/}
+          {/* <div className="custom-drawer-content">
+          
+          <List component="nav">{mainListItems(setSelectedComponent)}</List>
+        </div> */}
         </Drawer>
         <Box
           component="main"

@@ -64,7 +64,7 @@
   font-weight: 400;
   margin: 8px 0px;
   font-weight: 600;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .snip1533 blockquote {
@@ -86,9 +86,21 @@
   .css-1n9rcji-MuiDrawer-docked .MuiDrawer-paper.MuiDrawer-paperAnchorDockedLeft {
     margin-left: 0;
   }
+
+  .snip1533 h3 {
+    font-weight: 400;
+    margin: 1.8rem 0px;
+    font-weight: 600;
+    /* opacity: 0.5; */
+  }
 }
 
 /* Ensure the transition applies to all screens */
 .css-1n9rcji-MuiDrawer-docked .MuiDrawer-paper {
   transition: width 0.3s ease-in-out;
+}
+@media (min-width: 1200px) {
+  .css-1f2kw6w-MuiContainer-root {
+    max-width: none !important; /* Override the max-width property */
+  }
 }

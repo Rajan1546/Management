@@ -8,8 +8,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red } from "@mui/material/colors";
 import StaffTable from "./StaffTable";
 import "./Box.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarBus } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCarBus } from "@fortawesome/free-solid-svg-icons";
 
 function Copyright(props) {
   return (
@@ -67,14 +67,14 @@ const DashboardContainer = () => {
           {/* </Paper> */}
         </Grid>
         <Grid item xs={6} md={3} lg={3}>
-          <Paper
+          {/* <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
               height: 240,
             }}
-          >
+          > */}
             <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
@@ -86,17 +86,17 @@ const DashboardContainer = () => {
                 {/* <h4>Google Inc.</h4> */}
               </figcaption>
             </figure> 
-          </Paper>
+          {/* </Paper> */}
         </Grid>
         <Grid item xs={6} md={3} lg={3}>
-          <Paper
+          {/* <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
               height: 240,
             }}
-          >
+          > */}
             <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
@@ -108,18 +108,18 @@ const DashboardContainer = () => {
                 {/* <h4>Google Inc.</h4> */}
               </figcaption>
             </figure> 
-          </Paper>
+          {/* </Paper> */}
         </Grid>
         {/* Recent Deposits */}
         <Grid item xs={6} md={3} lg={3}>
-          <Paper
+          {/* <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
               height: 240,
             }}
-          >
+          > */}
            <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
@@ -132,7 +132,7 @@ const DashboardContainer = () => {
               </figcaption>
             </figure> 
             {/* <Deposits /> */}
-          </Paper>
+          {/* </Paper> */}
         </Grid>
         {/* Recent Orders */}
         <Grid item xs={12}>
