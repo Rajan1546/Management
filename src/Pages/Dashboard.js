@@ -1,5 +1,11 @@
 import * as React from "react";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  styled,
+  createTheme,
+  ThemeProvider,
+  useTheme,
+  makeStyles ,
+} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -13,13 +19,13 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { mainListItems,  } from "./ListItems";
-import gati from '../Images/gati.png'
+import { mainListItems } from "./ListItems";
+import gati from "../Images/gati.png";
 // secondaryListItems
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
-import './Dashboard.css' ;
+import "./Dashboard.css";
 import DashboardContainer from "../Components/DashboardContainer ";
 import PendingActions from "./PendingActions";
 import Docks from "./Docks";
@@ -72,33 +78,64 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
+
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
+  const theme = useTheme();
+  const [isSmallScreenDrawerOpen, setIsSmallScreenDrawerOpen] =
+    React.useState(false);
+  // const [isMainDrawerOpen, setIsMainDrawerOpen] = React.useState(true);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const [selectedComponent, setSelectedComponent] = React.useState('dashboard'); 
+  // const toggleMainDrawer = () => {
+  //   setIsMainDrawerOpen(!isMainDrawerOpen);
+  // };
+  const [selectedComponent, setSelectedComponent] = React.useState("dashboard");
+  
+  
+  
 
   const renderSelectedComponent = () => {
     switch (selectedComponent) {
-      case 'dashboard':
+      case "dashboard":
         return <DashboardContainer />;
-      case 'pendingActions':
+      case "pendingActions":
         return <PendingActions />;
-        case 'visitors':
+      case "visitors":
         return <VisitorTable />;
-        case 'vehicles':
+      case "vehicles":
         return <VehicleTable />;
-      case 'Docks':
+      case "Docks":
         return <Docks />;
       // Add more cases for other components if needed
       default:
         return <DashboardContainer />;
     }
   };
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < theme.breakpoints.values.sm) {
+        setIsSmallScreenDrawerOpen(true);
+      } else {
+        setIsSmallScreenDrawerOpen(false);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [theme.breakpoints.values.sm]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -127,10 +164,10 @@ export default function Dashboard() {
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ 
-                display:"flex",
-                justifyContent:"center",
-                flexGrow: 1 ,
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexGrow: 1,
               }}
             >
               <img
@@ -146,7 +183,38 @@ export default function Dashboard() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
+        <Drawer
+          variant="permanent"
+          open={open}
+          // classes={{ paper: classes.customDrawerPaper }} 
+          sx={{
+            position: isSmallScreenDrawerOpen ? "absolute" : "static", // Change position based on small screen drawer status
+            zIndex: isSmallScreenDrawerOpen ? theme.zIndex.drawer + 0 : "auto", // Higher z-index for small screen drawer
+            transition: "none", // Disable transition on position change
+            ...(isSmallScreenDrawerOpen && { width: 0 }),
+            // ... other styles
+          }}
+          // sx={{
+          //   position: isSmallScreenDrawerOpen ? 'absolute' : 'static', // Change position based on small screen drawer status
+          //   zIndex: isSmallScreenDrawerOpen ? theme.zIndex.drawer + 0 : 'auto', // Higher z-index for small screen drawer
+          //   transition: 'none', // Disable transition on position change
+          //   width: isSmallScreenDrawerOpen ? 0 : drawerWidth, // Set width to 0 when closed for small screens
+          //   overflowX: 'hidden', // Hide overflow on small screens
+          //   ...(!open && {
+          //     width: theme.spacing(7),
+          //     [theme.breakpoints.up('sm')]: {
+          //       width: theme.spacing(9),
+          //     },
+          //   }),
+          //   '&.MuiDrawer-paperAnchorDockedLeft': {
+          //     marginLeft: isSmallScreenDrawerOpen ? 0 : null, // Set margin-left to 0 when closed for small screens
+          //     transition: 'width 0.3s ease-in-out', // Add transition for width change
+          //     [theme.breakpoints.up('sm')]: {
+          //       width: !isSmallScreenDrawerOpen ? theme.spacing(9) : null, // Set width to default when open for small screens
+          //     },
+          //   },
+          // }}
+        >
           <Toolbar
             sx={{
               display: "flex",
@@ -156,19 +224,29 @@ export default function Dashboard() {
             }}
           >
             <img
-                src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gati_Logo_SVG.svg/330px-Gati_Logo_SVG.svg.png'
-                alt="Drawer Logo"
-                style={{ width: "85%", height: "80%" }}
-              />
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gati_Logo_SVG.svg/330px-Gati_Logo_SVG.svg.png"
+              alt="Drawer Logo"
+              style={{ width: "85%", height: "80%" }}
+            />
             <IconButton onClick={toggleDrawer}>
-              
-              <ChevronLeftIcon/>
+              <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
           <Divider />
+          {/* <List
+            component="nav"
+            sx={{
+              width: "100%",
+              overflowX: "hidden",
+              maxHeight: isSmallScreenDrawerOpen ? "100%" : 0,
+              transition: "max-height 0.3s ease-in-out",
+            }}
+          >
+            {mainListItems(setSelectedComponent)}
+          </List> */}
           <List component="nav">
           {mainListItems(setSelectedComponent)}
-            {/* {mainListItems}
+             {/*{mainListItems}
             <Divider sx={{ my: 1 }} />
             {secondaryListItems} */}
           </List>
@@ -186,8 +264,8 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-        
-        {renderSelectedComponent()}
+
+          {renderSelectedComponent()}
         </Box>
       </Box>
     </ThemeProvider>

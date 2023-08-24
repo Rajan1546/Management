@@ -9,6 +9,7 @@ import Parking from './Pages/Docks';
 import Forms from './Pages/Forms'
 import BadgeAvatars from './Components/Icon';
 import ConfirmationBill from './Pages/ConfrimationBill';
+import Box from './Components/Box';
 // import Box from './Components/Box';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Route path="/pendingactions" element={<PendingActions />} />
       <Route path='/park' element={<Parking/>}/>
       <Route path='/forms' element={<Forms/>}/>
-      <Route path='/icon' element={<BadgeAvatars/>}/>
+      <Route path='/box' element={<Box/>}/>
       <Route path='/confirmation' element={<ConfirmationBill/>}/>
       </Routes>
     </Router>
