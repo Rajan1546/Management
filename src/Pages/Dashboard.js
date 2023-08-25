@@ -4,7 +4,7 @@ import {
   createTheme,
   ThemeProvider,
   useTheme,
-  makeStyles ,
+  makeStyles,
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -18,7 +18,8 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
+import PowerSettingsNewOutlinedIcon from '@mui/icons-material/PowerSettingsNewOutlined';
 import { mainListItems } from "./ListItems";
 import gati from "../Images/gati.png";
 // secondaryListItems
@@ -31,6 +32,7 @@ import PendingActions from "./PendingActions";
 import Docks from "./Docks";
 import VisitorTable from "./VisitorTable";
 import VehicleTable from "./VehicleTable";
+import { useNavigate } from "react-router-dom"; 
 
 const drawerWidth = 240;
 
@@ -78,7 +80,6 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
@@ -91,10 +92,14 @@ export default function Dashboard() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  
-  const [selectedComponent, setSelectedComponent] = React.useState("dashboard");
-  
 
+  const [selectedComponent, setSelectedComponent] = React.useState("dashboard");
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/");
+  };
   const renderSelectedComponent = () => {
     switch (selectedComponent) {
       case "dashboard":
@@ -114,18 +119,14 @@ export default function Dashboard() {
   };
 
   React.useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsSmallScreen(window.innerWidth < theme.breakpoints.values.sm);
-  //   };
-
-  const handleResize = () => {
-    if (window.innerWidth < theme.breakpoints.values.sm) {
-      setIsSmallScreenDrawerOpen(true);
-    } else {
-      setIsSmallScreenDrawerOpen(false);
-    }
-  };
-  // Initial check
+    const handleResize = () => {
+      if (window.innerWidth < theme.breakpoints.values.sm) {
+        setIsSmallScreenDrawerOpen(true);
+      } else {
+        setIsSmallScreenDrawerOpen(false);
+      }
+    };
+    // Initial check
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -135,18 +136,15 @@ export default function Dashboard() {
     };
   }, [theme.breakpoints.values.sm]);
 
-  // const drawerStyles = {
-  //   width: isSmallScreen && !open ? "0px" : "240px", // Adjust width based on open status and screen size
-  // };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar position="absolute" open={open} >
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
+              justifyContent:'flex-end'
             }}
           >
             <IconButton
@@ -161,7 +159,26 @@ export default function Dashboard() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
+            {!open && ( // Conditionally render the image when the drawer is closed
+              <Typography
+                component="h1"
+                variant="h6"
+                color="inherit"
+                noWrap
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexGrow: 1,
+                }}
+              >
+                <img
+                  src={gati}
+                  alt="Dashboard Main Logo"
+                  style={{ width: "9.8%", height: "10%" }}
+                />
+              </Typography>
+            )}
+            {/* <Typography
               component="h1"
               variant="h6"
               color="inherit"
@@ -175,64 +192,43 @@ export default function Dashboard() {
               <img
                 src={gati}
                 alt="Dashboard Main Logo"
-                style={{ width: "12%", height: "10%" }}
+                style={{ width: "9.8%", height: "10%" }}
               />
-            </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+            </Typography> */}
+            <IconButton color="inherit" sx={{alignItems:'center'}} onClick={handleAddButtonClick}>
+              
+                <PowerSettingsNewOutlinedIcon />
+                <Typography sx={{marginLeft:'4%' , fontWeight:500}}>Logout</Typography>
             </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer
           variant="permanent"
           open={open}
-          // classes={{
-          //   paper: "custom-drawer-paper", // Apply the custom class name to the paper element
-          // }}
-          // style={drawerStyles}
-          // classes={{ paper: classes.customDrawerPaper }} 
           sx={{
             position: isSmallScreenDrawerOpen ? "absolute" : "static", // Change position based on small screen drawer status
             zIndex: isSmallScreenDrawerOpen ? theme.zIndex.drawer + 0 : "auto", // Higher z-index for small screen drawer
             transition: "none", // Disable transition on position change
             ...(isSmallScreenDrawerOpen && { width: 0 }),
-            // ... other styles
+
           }}
-          // sx={{
-          //   position: isSmallScreenDrawerOpen ? 'absolute' : 'static', // Change position based on small screen drawer status
-          //   zIndex: isSmallScreenDrawerOpen ? theme.zIndex.drawer + 0 : 'auto', // Higher z-index for small screen drawer
-          //   transition: 'none', // Disable transition on position change
-          //   width: isSmallScreenDrawerOpen ? 0 : drawerWidth, // Set width to 0 when closed for small screens
-          //   overflowX: 'hidden', // Hide overflow on small screens
-          //   ...(!open && {
-          //     width: theme.spacing(7),
-          //     [theme.breakpoints.up('sm')]: {
-          //       width: theme.spacing(9),
-          //     },
-          //   }),
-          //   '&.MuiDrawer-paperAnchorDockedLeft': {
-          //     marginLeft: isSmallScreenDrawerOpen ? 0 : null, // Set margin-left to 0 when closed for small screens
-          //     transition: 'width 0.3s ease-in-out', // Add transition for width change
-          //     [theme.breakpoints.up('sm')]: {
-          //       width: !isSmallScreenDrawerOpen ? theme.spacing(9) : null, // Set width to default when open for small screens
-          //     },
-          //   },
-          // }}
         >
           <Toolbar
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: "center",
               px: [1],
+              backgroundColor:'#1976D2'
             }}
           >
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gati_Logo_SVG.svg/330px-Gati_Logo_SVG.svg.png"
+              src={gati}
               alt="Drawer Logo"
-              style={{ width: "85%", height: "80%" }}
+              style={{
+                width: isSmallScreenDrawerOpen ? "50%" : "60%",
+                height: "75%",
+              }}
             />
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
@@ -244,22 +240,10 @@ export default function Dashboard() {
             sx={{
               width: "100%",
               overflowX: "hidden",
-              // maxHeight: isSmallScreenDrawerOpen ? "100%" : 0,
-              // transition: "max-height 0.3s ease-in-out",
             }}
           >
             {mainListItems(setSelectedComponent)}
           </List>
-          {/*<List component="nav">
-          {mainListItems(setSelectedComponent)}
-             {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems} 
-          </List>*/}
-          {/* <div className="custom-drawer-content">
-          
-          <List component="nav">{mainListItems(setSelectedComponent)}</List>
-        </div> */}
         </Drawer>
         <Box
           component="main"
@@ -274,7 +258,6 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-
           {renderSelectedComponent()}
         </Box>
       </Box>

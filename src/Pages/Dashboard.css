@@ -4,3 +4,15 @@
 body{
     font-family: 'Public Sans', sans-serif !important;
   }
+
+
+  @media (max-width: 800px) {
+    .css-194ltor-MuiList-root{
+        height: 91.5vh !important;
+      }
+  }
+  @media (max-width: 600px) {
+    .css-194ltor-MuiList-root{
+        height: 90.5vh !important;
+      }
+  }

@@ -228,15 +228,15 @@ body {
       .card-tag {
         width: 60px;
         max-width: 100px;
-        padding: 0.2rem 0.5rem;
-        font-size: 12px;
+        padding: 0.2rem 0.2rem;
+        font-size: 11px;
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 1px;
         background: #505f79;
         color: #fff;
 
-        &.tag-news {
+        &.Dock {
           background: #36b37e;
         }
 
@@ -301,7 +301,7 @@ body {
   .card-img,
   .card-img-hovered {
     background-image: var(--card-img-hovered-overlay),
-      url(https://source.unsplash.com/Qm_n6aoYzDs);
+      url('https://5.imimg.com/data5/LF/UD/MW/SELLER-70564270/container-truck-body.jpeg');
   }
 }
 
@@ -309,7 +309,7 @@ body {
   .card-img,
   .card-img-hovered {
     background-image: var(--card-img-hovered-overlay),
-      url(https://source.unsplash.com/C-v1p2DTakA);
+      url('https://5.imimg.com/data5/IY/AO/MY-35087935/aluminum-container-body.jpg');
   }
 }
 
@@ -317,7 +317,7 @@ body {
   .card-img,
   .card-img-hovered {
     background-image: var(--card-img-hovered-overlay),
-      url(https://source.unsplash.com/V0L1LH7qWOQ);
+      url('https://5.imimg.com/data5/KE/IW/EM/GLADMIN-5311256/selection-249-500x500.png');
   }
 }
 

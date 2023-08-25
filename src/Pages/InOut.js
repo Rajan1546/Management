@@ -15,11 +15,16 @@ function InOut() {
     // Navigate to "/forms" when Check In button is clicked
     navigate('/forms');
   };
+
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/");
+  };
   return (
     <div className="video-container"> 
     <div className='nav-container'>
     <Button className="top-left-btn" variant="text" startIcon={<img src={back} alt='Back' width={'30px'}/>} >Back</Button>
-        <Button className="top-right-btn" variant="text" startIcon={<img src={logout} alt='LogOut' width={'30px'}/>} >Log Out</Button>    
+        <Button className="top-right-btn" variant="text" startIcon={<img src={logout} alt='LogOut' width={'30px'}/>} onClick={handleAddButtonClick}>Log Out</Button>    
     </div>
       <div className="avatar-container">
         <Avatar sx={{ m: 1, background: "none", width: 100, height: 100 }}>

@@ -8,6 +8,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red } from "@mui/material/colors";
 import StaffTable from "./StaffTable";
 import "./Box.css";
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom"; 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCarBus } from "@fortawesome/free-solid-svg-icons";
 
@@ -39,6 +41,13 @@ function Copyright(props) {
 }
 
 const DashboardContainer = () => {
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/arriving");
+  };
+
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
@@ -58,7 +67,7 @@ const DashboardContainer = () => {
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
                 <h3 style={{ textDecoration: "#9e9e9e}" }}>Total Entry</h3>
                 <blockquote>
-                  <h1>178</h1>
+                  <h1>174</h1>
                 </blockquote>
 
                 {/* <h4>Google Inc.</h4> */}
@@ -78,7 +87,7 @@ const DashboardContainer = () => {
             <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
-                <h3 style={{ textDecoration: "#9e9e9e}" }}>Total Visitors</h3>
+                <h3 style={{ textDecoration: "#9e9e9e}" }}> Visitors</h3>
                 <blockquote>
                   <h1>98</h1>
                 </blockquote>
@@ -100,7 +109,7 @@ const DashboardContainer = () => {
             <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
-                <h3 style={{ textDecoration: "#9e9e9e}" }}>Total Vehicles</h3>
+                <h3 style={{ textDecoration: "#9e9e9e}" }}> Vehicles</h3>
                 <blockquote>
                   <h1>76</h1>
                 </blockquote>
@@ -123,9 +132,9 @@ const DashboardContainer = () => {
            <figure className="snip1533">
               <figcaption>
                 {/*<FontAwesomeIcon icon="fa-solid fa-car-bus" />*/}
-                <h3 style={{ textDecoration: "#9e9e9e}" }}>Add Guest</h3>
+                <h3 style={{ textDecoration: "#9e9e9e}" }} >Any Guest ?</h3>
                 <blockquote>
-                  <h1>178</h1>
+                  <Button variant="outlined" color="primary" sx={{margin:' 12px 0px'}} onClick={handleAddButtonClick}>Add</Button>
                 </blockquote>
 
                 {/* <h4>Google Inc.</h4> */}
@@ -137,7 +146,7 @@ const DashboardContainer = () => {
         {/* Recent Orders */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            {/* <Orders /> */}
+            <Typography sx={{fontSize:20 , fontWeight:600 }}>Staff Working :</Typography>
             <StaffTable />
           </Paper>
         </Grid>

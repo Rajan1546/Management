@@ -55,13 +55,12 @@
 .snip1533 h3 {
   color: #3c3c3c;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 24px;
   margin: 10px 0 5px;
 }
 
-.snip1533 h3 {
-  font-weight: 400;
+.snip1533 h1 {
   margin: 8px 0px;
   font-weight: 600;
   /* opacity: 0.5; */
@@ -93,6 +92,7 @@
     font-weight: 600;
     /* opacity: 0.5; */
   }
+
 }
 
 /* Ensure the transition applies to all screens */

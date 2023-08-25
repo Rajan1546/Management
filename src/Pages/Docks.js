@@ -77,7 +77,7 @@ const NewsCard = ({ tag, time, title, creator }) => {
           </div>
           <h1 className="card-title">{title}</h1>
           <div className="card-creator">
-            by <a href="">{creator}</a>
+            by {creator}
           </div>
         </div>
       </div>
@@ -88,22 +88,22 @@ const NewsCard = ({ tag, time, title, creator }) => {
 const Docks = () => {
   const newsData = [
     {
-      tag: "tag-news",
-      time: "6/11/2018",
-      title: "There have been big Tesla accident at New Jersey",
-      creator: "Sardorbek Usmonov",
+      tag: "Dock #1",
+      time: "28/08/2023",
+      title: "Stark Industries",
+      creator: "Cersei Usmonov",
     },
     {
-      tag: "Tech",
-      time: "6/07/2018",
-      title: "Samsung laptops is exploding again",
+      tag: "Dock #2",
+      time: "29/08/2023",
+      title: "Golden Enterprises",
       creator: "Tyler Platt",
     },
     // Add more data entries here
   ];
 
   return (
-    <div>
+    <div style={{display:'flex'}}>
       {newsData.map((data, index) => (
         <NewsCard key={index} {...data} />
       ))}
