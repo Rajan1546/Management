@@ -17,13 +17,17 @@ const columns = [
   {
     field: "visitorimage",
     headerName: "Visitor's Image",
-    width: 90,
+    width: 130,
     renderCell: (params) => (
-        <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 }} />
-      ),
+      <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 , display:'flex' ,justifyContent:'center'}} />
+    ),
   },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 130,
+    valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+  },
   {
     field: "companyname",
     headerName: "Company's Name",
@@ -35,44 +39,58 @@ const columns = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    // valueGetter: (params) =>
-    //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
   {
-    field: "email",
-    headerName: "Email ID",
+    field: "location",
+    headerName: "Location",
     width: 150,
   },
   {
-    field: "phonenummber",
-    headerName: "Phone Number",
+    field: "vehicle",
+    headerName: "Vehicle Number",
+    width: 130,
+  },
+  {
+    field: "purpose",
+    headerName: "Purpose",
     width: 150,
   },
   {
-    field: "action",
-    headerName: "Action",
-    width: 120,
-    renderCell: (params) => (
-      <div style={{ display: "flex",justifyContent: "space-between" ,width:'25px' , height:'25px'}}>
-        <img src={check} alt="Grant" style={{marginRight:'50%' , cursor:'pointer'}}/>
-        <img src={cross} alt="Reject" style={{cursor:'pointer'}}/>
-      </div>
-    ),
+    field: "checkIn",
+    headerName: "Check-In",
+    width: 130,
+  },
+  {
+    field: "checkOut",
+    headerName: "Check-Out",
+    width: 130,
   },
 ];
 
+const generateRandomLocation = () => {
+  const locations = ["City A", "City B", "City C", "City D", "City E"];
+  return locations[Math.floor(Math.random() * locations.length)];
+};
+
+const generateRandomVehicleNumber = () => {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const digits = "0123456789";
+  const randomLetters = Array.from({ length: 2 }, () => letters.charAt(Math.floor(Math.random() * letters.length))).join('');
+  const randomDigits = Array.from({ length: 2 }, () => digits.charAt(Math.floor(Math.random() * digits.length))).join('');
+  return `IN-${randomLetters}-${randomDigits}-${randomDigits}`;
+};
+
 const rows = [
-    { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", email: "jon@example.com", phonenummber: "1234567890", grant: "Yes", reject: "No" },
-    { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", email: "cersei@example.com", phonenummber: "9876543210", grant: "Yes", reject: "No" },
-    { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", email: "jaime@example.com", phonenummber: "5678901234", grant: "Yes", reject: "No" },
-    { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", email: "arya@example.com", phonenummber: "4321098765", grant: "Yes", reject: "No" },
-    { id: "#G5621", visitorimage: "https://i.pravatar.cc/150?img=25", firstName: "Daenerys", lastName: "Targaryen", companyname: "Targaryen Ventures", meetingperson: "Person 5", email: "daenerys@example.com", phonenummber: "9876541230", grant: "Yes", reject: "No" },
-    { id: "#G5622", visitorimage: "https://i.pravatar.cc/150?img=36", firstName: "Melisandre", lastName: "None", companyname: "Shadow Mysteries Ltd.", meetingperson: "Person 6", email: "melisandre@example.com", phonenummber: "6543127890", grant: "Yes", reject: "No" },
-    { id: "#G5623", visitorimage: "https://i.pravatar.cc/150?img=67", firstName: "Ferrara", lastName: "Clifford", companyname: "Crystal Innovations", meetingperson: "Person 7", email: "ferrara@example.com", phonenummber: "3456789012", grant: "Yes", reject: "No" },
-    { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", email: "rossini@example.com", phonenummber: "8765432109", grant: "Yes", reject: "No" },
-    { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", email: "harvey@example.com", phonenummber: "2345678901", grant: "Yes", reject: "No" },
-  ];
-  
+  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
+  { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "09:30 AM", checkOut: "04:30 PM" },
+  { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "10:15 AM", checkOut: "06:45 PM" },
+  { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "11:00 AM", checkOut: "04:00 PM" },
+  { id: "#G5621", visitorimage: "https://i.pravatar.cc/150?img=25", firstName: "Daenerys", lastName: "Targaryen", companyname: "Targaryen Ventures", meetingperson: "Person 5", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "12:30 PM", checkOut: "07:30 PM" },
+  { id: "#G5622", visitorimage: "https://i.pravatar.cc/150?img=36", firstName: "Melisandre", lastName: "None", companyname: "Shadow Mysteries Ltd.", meetingperson: "Person 6", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "02:00 PM", checkOut: "06:00 PM" },
+  { id: "#G5623", visitorimage: "https://i.pravatar.cc/150?img=67", firstName: "Ferrara", lastName: "Clifford", companyname: "Crystal Innovations", meetingperson: "Person 7", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "09:45 AM", checkOut: "05:15 PM" },
+  { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "11:30 AM", checkOut: "04:45 PM" },
+  { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "01:15 PM", checkOut: "07:00 PM" },
+];
   
 
 export default function VehicleTable() {

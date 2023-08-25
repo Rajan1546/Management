@@ -63,6 +63,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from "react-router-dom"; 
 
 
 function Copyright(props) {
@@ -93,7 +94,12 @@ export default function ConfirmationBill() {
       password: data.get('password'),
     });
   };
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/arriving");
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -153,7 +159,7 @@ export default function ConfirmationBill() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-            >
+              onClick={handleAddButtonClick}>
               OK
             </Button>
             {/* <Grid container>

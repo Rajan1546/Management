@@ -99,11 +99,29 @@ const Docks = () => {
       title: "Golden Enterprises",
       creator: "Tyler Platt",
     },
+    {
+      tag: "Dock #3",
+      time: "29/08/2023",
+      title: "Faceless Co.",
+      creator: "Jhon Doe",
+    },
+    {
+      tag: "Dock #4",
+      time: "29/08/2023",
+      title: "Lannister Holdings",
+      creator: "Ferrara Clifford",
+    },
+    {
+      tag: "Dock #5",
+      time: "29/08/2023",
+      title: "Crystal Innovations",
+      creator: "Harvey Roxie",
+    },
     // Add more data entries here
   ];
 
   return (
-    <div style={{display:'flex'}}>
+    <div style={{display:'flex' ,flexWrap:'wrap' , justifyContent:'center'}}>
       {newsData.map((data, index) => (
         <NewsCard key={index} {...data} />
       ))}

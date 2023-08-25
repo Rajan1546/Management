@@ -174,7 +174,11 @@ export default function Dashboard() {
                 <img
                   src={gati}
                   alt="Dashboard Main Logo"
-                  style={{ width: "9.8%", height: "10%" }}
+                  style={{
+                    width: isSmallScreenDrawerOpen ? "50%" : "9.8%",
+                    height: "10%",
+                  }}
+                  // style={{ width: "9.8%", height: "10%" }}
                 />
               </Typography>
             )}

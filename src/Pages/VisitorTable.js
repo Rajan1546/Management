@@ -19,8 +19,8 @@ const columns = [
     headerName: "Visitor's Image",
     width: 90,
     renderCell: (params) => (
-        <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 }} />
-      ),
+      <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 }} />
+    ),
   },
   { field: "firstName", headerName: "First name", width: 130 },
   { field: "lastName", headerName: "Last name", width: 130 },
@@ -35,45 +35,37 @@ const columns = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    // valueGetter: (params) =>
-    //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
   {
-    field: "email",
-    headerName: "Email ID",
+    field: "purpose",
+    headerName: "Purpose",
     width: 150,
   },
   {
-    field: "phonenummber",
-    headerName: "Phone Number",
-    width: 150,
+    field: "checkIn",
+    headerName: "Check-In Time",
+    width: 160,
   },
   {
-    field: "action",
-    headerName: "Action",
-    width: 120,
-    renderCell: (params) => (
-      <div style={{ display: "flex",justifyContent: "space-between" ,width:'25px' , height:'25px'}}>
-        <img src={check} alt="Grant" style={{marginRight:'50%' , cursor:'pointer'}}/>
-        <img src={cross} alt="Reject" style={{cursor:'pointer'}}/>
-      </div>
-    ),
+    field: "checkOut",
+    headerName: "Check-Out Time",
+    width: 160,
   },
 ];
 
 const rows = [
-    { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", email: "jon@example.com", phonenummber: "1234567890", grant: "Yes", reject: "No" },
-    { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", email: "cersei@example.com", phonenummber: "9876543210", grant: "Yes", reject: "No" },
-    { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", email: "jaime@example.com", phonenummber: "5678901234", grant: "Yes", reject: "No" },
-    { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", email: "arya@example.com", phonenummber: "4321098765", grant: "Yes", reject: "No" },
-    { id: "#G5621", visitorimage: "https://i.pravatar.cc/150?img=25", firstName: "Daenerys", lastName: "Targaryen", companyname: "Targaryen Ventures", meetingperson: "Person 5", email: "daenerys@example.com", phonenummber: "9876541230", grant: "Yes", reject: "No" },
-    { id: "#G5622", visitorimage: "https://i.pravatar.cc/150?img=36", firstName: "Melisandre", lastName: "None", companyname: "Shadow Mysteries Ltd.", meetingperson: "Person 6", email: "melisandre@example.com", phonenummber: "6543127890", grant: "Yes", reject: "No" },
-    { id: "#G5623", visitorimage: "https://i.pravatar.cc/150?img=67", firstName: "Ferrara", lastName: "Clifford", companyname: "Crystal Innovations", meetingperson: "Person 7", email: "ferrara@example.com", phonenummber: "3456789012", grant: "Yes", reject: "No" },
-    { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", email: "rossini@example.com", phonenummber: "8765432109", grant: "Yes", reject: "No" },
-    { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", email: "harvey@example.com", phonenummber: "2345678901", grant: "Yes", reject: "No" },
-  ];
-  
-  
+  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
+  { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", purpose: "Delivery", checkIn: "09:30 AM", checkOut: "04:30 PM" },
+  { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", purpose: "Meeting", checkIn: "10:15 AM", checkOut: "06:45 PM" },
+  { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", purpose: "Delivery", checkIn: "11:30 AM", checkOut: "03:15 PM" },
+  { id: "#G5621", visitorimage: "https://i.pravatar.cc/150?img=25", firstName: "Daenerys", lastName: "Targaryen", companyname: "Targaryen Ventures", meetingperson: "Person 5", purpose: "Meeting", checkIn: "08:45 AM", checkOut: "07:30 PM" },
+  { id: "#G5622", visitorimage: "https://i.pravatar.cc/150?img=36", firstName: "Melisandre", lastName: "None", companyname: "Shadow Mysteries Ltd.", meetingperson: "Person 6", purpose: "Delivery", checkIn: "09:00 AM", checkOut: "04:00 PM" },
+  { id: "#G5623", visitorimage: "https://i.pravatar.cc/150?img=67", firstName: "Ferrara", lastName: "Clifford", companyname: "Crystal Innovations", meetingperson: "Person 7", purpose: "Meeting", checkIn: "10:30 AM", checkOut: "06:15 PM" },
+  { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", purpose: "Delivery", checkIn: "11:15 AM", checkOut: "05:45 PM" },
+  { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", purpose: "Meeting", checkIn: "08:30 AM", checkOut: "06:30 PM" },
+  // Add more rows as needed
+];
+
 
 export default function VisitorTable() {
   const Search = styled('div')(({ theme }) => ({
