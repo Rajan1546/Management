@@ -142,11 +142,11 @@ export default function Login() {
                   autoComplete="email"
                   size="small"
                   InputProps={{
-                    style: { color: "white" },
+                    style: { color: "black" },
                     borderColor: 'white'
                   }}
                   InputLabelProps={{
-                    style: { color: "white" },
+                    style: { color: "black" },
                   }}
                 />
               </Grid>
@@ -162,10 +162,10 @@ export default function Login() {
                   autoComplete="new-password"
                   size="small"
                   InputProps={{
-                    style: { color: "white" },
+                    style: { color: "black" },
                   }}
                   InputLabelProps={{
-                    style: { color: "white" },
+                    style: { color: "black" },
                   }}
                 />
               </Grid>
@@ -182,9 +182,9 @@ export default function Login() {
                 />
               </Grid> */}
               <Grid item xs={12}>
-                <FormControlLabel sx={{ color: "white" }}
+                <FormControlLabel sx={{ color: "black" }}
                   control={
-                    <Checkbox value="allowExtraEmails" sx={{color:"#ffffff" }}/>
+                    <Checkbox value="allowExtraEmails" sx={{color:"#000" }}/>
                   }
                   label="Remember Me "
                 />
@@ -200,7 +200,7 @@ export default function Login() {
             </Button>
             <Grid container justifyContent="center">
               <Grid item>
-                <Link href="#" variant="body2" sx={{ color: "white" }}>
+                <Link href="#" variant="body2" sx={{ color: "black" }}>
                   Don't have an account?
                 </Link>
               </Grid>
