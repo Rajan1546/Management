@@ -19,6 +19,8 @@ import VehicleForm from "../Components/VehicleForm";
 import { useNavigate } from "react-router-dom";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import gati from "../Images/gati.png";
+import PowerSettingsNewOutlinedIcon from '@mui/icons-material/PowerSettingsNewOutlined';
 
 function Copyright(props) {
   return (
@@ -43,6 +45,12 @@ export default function Forms() {
   const handleTabType = (event, newValue) => {
     setActiveTab(newValue);
   };
+  
+
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/");
+  };
 
   const renderFormComponent = () => {
     switch (activeTab) {
@@ -64,16 +72,28 @@ export default function Forms() {
       <CssBaseline />
       <AppBar
         position="absolute"
-        color="default"
+        color="primary"
         elevation={0}
         sx={{
           position: "relative",
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{display:'flex' , justifyContent:'space-between'}}>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+          <img
+                  src={gati}
+                  alt="Main Logo"
+                  style={{
+                    display:'flex',
+                    alignItem:'center',
+                    width: "50%",
+                  }}
+          />
+          </Typography>
+          <Typography sx={{ fontWeight:500 ,display:'flex', alignItems:'center'}} onClick={handleAddButtonClick}>
+          <PowerSettingsNewOutlinedIcon sx={{marginRight:'4%'}}/>
+            Logout
           </Typography>
         </Toolbar>
       </AppBar>
@@ -112,7 +132,7 @@ export default function Forms() {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } , backgroundColor:'F1F9FB' }}
         >
           {renderFormComponent()}
           <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
@@ -121,7 +141,7 @@ export default function Forms() {
               onClick={handleNext}
               sx={{ mt: 3, ml: 1 }}
             >
-              Next
+              Submit
             </Button>
           </Box>
         </Paper>

@@ -99,7 +99,7 @@ export default function Login() {
               alt="logo img"
             />
           </Avatar>
-          <Typography component="h1" variant="h5" sx={{ color: "white" }}>
+          <Typography component="h1" variant="h5" sx={{ color: "black" }}>
             Sign In
           </Typography>
           <Box

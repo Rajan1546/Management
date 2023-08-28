@@ -34,6 +34,24 @@
   padding: 30% 10% 12%;
 }
 
+/* Corresponding classes for Font Awesome icons */
+.snip1533.fa-car figcaption:before {
+  content: "\f1b9"; /* Unicode code for car icon */
+}
+
+.snip1533.fa-user figcaption:before {
+  content: "\f2c2"; /* Unicode code for user icon */
+}
+
+.snip1533.fa-bus figcaption:before {
+  content: "\f1b9"; /* Unicode code for bus icon */
+}
+
+.snip1533.fa-plus figcaption:before {
+  content: "\f059"; /* Unicode code for plus icon */
+}
+
+/* Rest of your existing CSS properties */
 .snip1533 figcaption:before {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -41,14 +59,13 @@
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   color: #1976D2;
-  content: "\f2c2";
   font-family: "FontAwesome";
   font-size: 32px;
   font-style: normal;
   left: 50%;
   line-height: 60px;
   position: absolute;
-  top: 010px;
+  top: 10px;
   width: 60px;
 }
 
