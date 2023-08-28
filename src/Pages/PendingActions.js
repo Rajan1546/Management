@@ -11,6 +11,10 @@ import cross from '../Images/cross.png'
 import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { toast } from 'react-toastify';
 
 // const columns = [
 //   { field: "id", headerName: "ID Code", width: 90 },
@@ -72,23 +76,32 @@ import Stack from '@mui/material/Stack';
 //     { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", email: "rossini@example.com", phonenummber: "8765432109", grant: "Yes", reject: "No" },
 //     { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", email: "harvey@example.com", phonenummber: "2345678901", grant: "Yes", reject: "No" },
 //   ];
-  
+const handleCheckClick = () => {
+  toast.success('Access Granted', { autoClose: 2000 });
+  // Perform any other action you need
+};
+
+const handleCrossClick = () => {
+  toast.error('Access Denied!', { autoClose: 2000 });
+  // Perform any other action you need
+};
+
 const columns = [
-  { field: "id", headerName: "ID Code", width: 90 },
+  { field: "id", headerName: "ID Code", width: 130 },
   {
     field: "visitorimage",
     headerName: "Visitor's Image",
-    width: 90,
+    width: 170,
     renderCell: (params) => (
       <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 }} />
     ),
   },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  { field: "firstName", headerName: "First name", width: 170 },
+  { field: "lastName", headerName: "Last name", width: 170 },
   {
     field: "companyname",
     headerName: "Company's Name",
-    width: 200,
+    width: 260,
   },
   {
     field: "meetingperson",
@@ -105,7 +118,7 @@ const columns = [
   {
     field: "phonenummber",
     headerName: "Phone Number",
-    width: 150,
+    width: 180,
   },
   {
     field: "action",
@@ -113,8 +126,8 @@ const columns = [
     width: 120,
     renderCell: (params) => (
       <div style={{ display: "flex", justifyContent: "space-between", width: '25px', height: '25px' }}>
-        <img src={check} alt="Grant" style={{ marginRight: '50%', cursor: 'pointer' }} />
-        <img src={cross} alt="Reject" style={{ cursor: 'pointer' }} />
+        <img src={check} alt="Grant" style={{ marginRight: '50%', cursor: 'pointer' }} onClick={handleCheckClick}/>
+        <img src={cross} alt="Reject" style={{ cursor: 'pointer' }}  onClick={handleCrossClick}/>
       </div>
     ),
   },
@@ -148,6 +161,7 @@ export default function PendingActions() {
     border: '1px solid #ccc',
   }));
   
+ 
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 1.5),
     height: '100%',
@@ -175,6 +189,7 @@ export default function PendingActions() {
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <ToastContainer position="top-right" autoClose={3000} />
     <div style={{ height: "77.6vh", width: "100%" , backgroundColor:'#fff', padding : "1rem 1rem 2.7rem 1rem"}}> 
     <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center', marginBottom:'5px'}}>
       <p style={{fontWeight:'bold' , margin:'0'}}>Pending Actions</p>

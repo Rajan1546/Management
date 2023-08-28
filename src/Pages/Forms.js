@@ -68,7 +68,8 @@ export default function Forms() {
   };
 
   return (
-    <React.Fragment>
+    <div style={{backgroundColor:'#F1F9FB'}}>
+    <React.Fragment >
       <CssBaseline />
       <AppBar
         position="absolute"
@@ -148,5 +149,6 @@ export default function Forms() {
         <Copyright />
       </Container>
     </React.Fragment>
+    </div>
   );
 }

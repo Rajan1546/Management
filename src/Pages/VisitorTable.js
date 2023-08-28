@@ -13,28 +13,28 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 const columns = [
-  { field: "id", headerName: "ID Code", width: 90 },
+  { field: "id", headerName: "ID Code", width: 120 },
   {
     field: "visitorimage",
     headerName: "Visitor's Image",
-    width: 90,
+    width: 170,
     renderCell: (params) => (
       <Avatar alt="Visitor" src={params.row.visitorimage} sx={{ width: 40, height: 40 }} />
     ),
   },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  { field: "firstName", headerName: "First name", width: 170 },
+  { field: "lastName", headerName: "Last name", width: 170 },
   {
     field: "companyname",
     headerName: "Company's Name",
-    width: 200,
+    width: 260,
   },
   {
     field: "meetingperson",
     headerName: "Meeting Person",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    width: 180,
   },
   {
     field: "purpose",
@@ -43,13 +43,13 @@ const columns = [
   },
   {
     field: "checkIn",
-    headerName: "Check-In Time",
-    width: 160,
+    headerName: "Check-In ",
+    width: 200,
   },
   {
     field: "checkOut",
-    headerName: "Check-Out Time",
-    width: 160,
+    headerName: "Check-Out ",
+    width: 200,
   },
 ];
 

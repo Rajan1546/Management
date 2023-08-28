@@ -101,6 +101,7 @@ export default function ConfirmationBill() {
     navigate("/arriving");
   };
   return (
+    
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
