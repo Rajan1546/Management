@@ -224,8 +224,8 @@ const DashboardContainer = () => {
 
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={3}>
+    <Container maxWidth="unset" sx={{ mt: 4, mb: 4 , marginTop:'7.5%' , backgroundColor:'#EFF8FF'}}>
+      <Grid container spacing={3} >
         {cardData.map((card, index) => (
           <Grid item xs={6} md={3} lg={3} key={index}>
             {/* <Paper

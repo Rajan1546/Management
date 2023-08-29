@@ -132,7 +132,7 @@ export default function VehicleTable() {
   );
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth="unset" sx={{ mt: 4, mb: 4 ,marginTop:'7.5%'}}>
     <div style={{ height: "77.6vh", width: "100%" , backgroundColor:'#fff', padding : "1rem 1rem 2.7rem 1rem"}}> 
     <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center', marginBottom:'5px'}}>
       <p style={{fontWeight:'bold' , margin:'0'}}>Vehicles</p>
@@ -151,9 +151,9 @@ export default function VehicleTable() {
         rows={rows}
         columns={columns}
         
-        components={{
-          Pagination: CustomPagination, // Use the custom pagination component
-        }}
+        // components={{
+        //   Pagination: CustomPagination, // Use the custom pagination component
+        // }}
       />
     </div>
     </Container>

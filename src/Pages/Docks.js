@@ -121,7 +121,7 @@ const Docks = () => {
   ];
 
   return (
-    <div style={{display:'flex' ,flexWrap:'wrap' , justifyContent:'center'}}>
+    <div style={{display:'flex' ,flexWrap:'wrap' , justifyContent:'center' , marginTop:'7.5%' , backgroundColor:'EFF8FF'}}>
       {newsData.map((data, index) => (
         <NewsCard key={index} {...data} />
       ))}
