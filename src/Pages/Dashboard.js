@@ -19,7 +19,7 @@ import IconButton from "@mui/material/IconButton";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 // // import NotificationsIcon from "@mui/icons-material/Notifications";
-import PowerSettingsNewOutlinedIcon from '@mui/icons-material/PowerSettingsNewOutlined';
+import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
 // import { mainListItems } from "./ListItems";
 import gati from "../Images/gati.png";
 // // secondaryListItems
@@ -32,7 +32,7 @@ import gati from "../Images/gati.png";
 // import Docks from "./Docks";
 // import VisitorTable from "./VisitorTable";
 // import VehicleTable from "./VehicleTable";
-// import { useNavigate } from "react-router-dom"; 
+// import { useNavigate } from "react-router-dom";
 
 // const drawerWidth = 240;
 
@@ -200,7 +200,7 @@ import gati from "../Images/gati.png";
 //               />
 //             </Typography> */}
 //             <IconButton color="inherit" sx={{alignItems:'center'}} onClick={handleAddButtonClick}>
-              
+
 //                 <PowerSettingsNewOutlinedIcon />
 //                 <Typography sx={{marginLeft:'4%' , fontWeight:500}}>Logout</Typography>
 //             </IconButton>
@@ -269,17 +269,13 @@ import gati from "../Images/gati.png";
 //   );
 // }
 
-
-
-
-
-import React, { useState, useEffect } from 'react';
-import './Dashboard.css'; // Import your CSS file
-import DashboardContainer from '../Components/DashboardContainer';
-import PendingActions from './PendingActions';
-import VehicleTable from './VehicleTable';
-import VisitorTable from './VisitorTable';
-import Docks from './Docks';
+import React, { useState, useEffect } from "react";
+import "./Dashboard.css"; // Import your CSS file
+import DashboardContainer from "../Components/DashboardContainer";
+import PendingActions from "./PendingActions";
+import VehicleTable from "./VehicleTable";
+import VisitorTable from "./VisitorTable";
+import Docks from "./Docks";
 
 const HomeContent = () => <div>Home Content</div>;
 const AboutContent = () => <div>About Content</div>;
@@ -293,13 +289,13 @@ const Dashboard = () => {
   const [searchActive, setSearchActive] = useState(false);
 
   useEffect(() => {
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode === 'dark-mode') {
+    const savedMode = localStorage.getItem("mode");
+    if (savedMode === "dark-mode") {
       setDarkMode(true);
     }
   }, []);
 
-  const [activeContent, setActiveContent] = useState(<DashboardContainer/>);
+  const [activeContent, setActiveContent] = useState(<DashboardContainer />);
 
   const handleNavigationClick = (contentComponent) => {
     setActiveContent(contentComponent);
@@ -308,7 +304,7 @@ const Dashboard = () => {
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => {
       const newMode = !prevDarkMode;
-      localStorage.setItem('mode', newMode ? 'dark-mode' : 'light-mode');
+      localStorage.setItem("mode", newMode ? "dark-mode" : "light-mode");
       return newMode;
     });
   };
@@ -320,8 +316,8 @@ const Dashboard = () => {
   const closeSidebar = (e) => {
     const clickedElm = e.target;
     if (
-      !clickedElm.classList.contains('sidebarOpen') &&
-      !clickedElm.classList.contains('menu')
+      !clickedElm.classList.contains("sidebarOpen") &&
+      !clickedElm.classList.contains("menu")
     ) {
       setSidebarActive(false);
     }
@@ -329,57 +325,83 @@ const Dashboard = () => {
 
   return (
     <div>
-    <nav className={sidebarActive ? 'active' : ''}>
-      <div className={`nav-bar`}>
-        <i className="bx bx-menu sidebarOpen" onClick={toggleSidebar}></i>
-        <span className="logo navLogo" style={{width:'8.5%', display:'flex', justifyContent:'center'}}>
-        <img
-                src={gati}
-                alt="Dashboard Main Logo"
-                width="100%" 
-              />
-        </span>
+      <nav className={sidebarActive ? "active" : ""}>
+        <div className={`nav-bar`}>
+          <i className="bx bx-menu sidebarOpen" onClick={toggleSidebar}></i>
+          <span
+            className="logo navLogo"
+            style={{ width: "8.5%", display: "flex", justifyContent: "center" }}
+          >
+            <img src={gati} alt="Dashboard Main Logo" width="100%" />
+          </span>
 
-        <div className="menu">
-          <div className="logo-toggle">
-            <span className="logo">
-            <img
-                src={gati}
-                alt="Dashboard Main Logo"
-                style={{display:'flex', justifyContent:'center', width: "60%", height: "10%" }}
-              />
-            </span>
-            <i className="bx bx-x siderbarClose" onClick={toggleSidebar}></i>
+          <div className="menu">
+            <div className="logo-toggle">
+              <span className="logo">
+                <img
+                  src={gati}
+                  alt="Dashboard Main Logo"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    width: "60%",
+                    height: "10%",
+                  }}
+                />
+              </span>
+              <i className="bx bx-x siderbarClose" onClick={toggleSidebar}></i>
+            </div>
+
+            <ul className="nav-links">
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleNavigationClick(<DashboardContainer />)}
+                >
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleNavigationClick(<PendingActions />)}
+                >
+                  Pending Actions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleNavigationClick(<VehicleTable />)}
+                >
+                  Vehicles
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => handleNavigationClick(<VisitorTable />)}
+                >
+                  Visitors
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={() => handleNavigationClick(<Docks />)}>
+                  Dock
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <ul className="nav-links">
-            <li>
-              <a href="#" onClick={() => handleNavigationClick(<DashboardContainer />)}>Dashboard</a>
-            </li>
-            <li>
-              <a href="#" onClick={() => handleNavigationClick(<PendingActions />)}>Pending Actions</a>
-            </li>
-            <li>
-              <a href="#" onClick={() => handleNavigationClick(<VehicleTable />)}>Vehicles</a>
-            </li>
-            <li>
-              <a href="#" onClick={() => handleNavigationClick(<VisitorTable />)}>Visitors</a>
-            </li>
-            <li>
-              <a href="#" onClick={() => handleNavigationClick(<Docks />)}>Dock</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="darkLight-searchBox">
-          {/* <div className="dark-light">
+          <div className="darkLight-searchBox">
+            {/* <div className="dark-light">
             <i
               className={`bx ${darkMode ? 'bx-sun sun' : 'bx-moon moon'}`}
               onClick={toggleDarkMode}
             ></i>
           </div> */}
 
-          {/* <div className="searchBox">
+            {/* <div className="searchBox">
             <div className="searchToggle" onClick={() => setSearchActive(!searchActive)}>
               <i className="bx bx-x cancel"></i>
               <i className="bx bx-search search"></i>
@@ -390,15 +412,18 @@ const Dashboard = () => {
               <i className="bx bx-search"></i>
             </div>
           </div> */}
-          <IconButton color="inherit" sx={{alignItems:'center'}} >
-              
-                               <PowerSettingsNewOutlinedIcon sx={{color:"white"}} />
-                               <Typography sx={{marginLeft:'4%' , fontWeight:500 , color:'white'}}>Logout</Typography>
-                           </IconButton>
+            <IconButton color="inherit" sx={{ alignItems: "center" }}>
+              <PowerSettingsNewOutlinedIcon sx={{ color: "white" }} />
+              <Typography
+                sx={{ marginLeft: "4%", fontWeight: 500, color: "white" }}
+              >
+                Logout
+              </Typography>
+            </IconButton>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div className="content" >
+      </nav>
+      <div className="content">
         {/* Display active content component */}
         {activeContent}
       </div>

@@ -10,6 +10,7 @@ import Forms from './Pages/Forms'
 import BadgeAvatars from './Components/Icon';
 import ConfirmationBill from './Pages/ConfrimationBill';
 import Box from './Components/Box';
+// import CardProfile from './Components/CardProfile';
 // import Box from './Components/Box';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path='/forms' element={<Forms/>}/>
       <Route path='/box' element={<Box/>}/>
       <Route path='/confirmation' element={<ConfirmationBill/>}/>
+      {/* <Route path='/hello' element={<CardProfile/>}/> */}
       </Routes>
     </Router>
   );

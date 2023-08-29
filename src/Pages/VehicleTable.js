@@ -1,16 +1,23 @@
-import * as React from "react";
-import { DataGrid, GridPagination  } from "@mui/x-data-grid";
+import React from "react";
+import { DataGrid } from "@mui/x-data-grid";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
-import './PendingActions.css'
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import check from '../Images/check.png';
-import cross from '../Images/cross.png'
-import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+
+const generateRandomLocation = () => {
+  const locations = ["City A", "City B", "City C", "City D", "City E"];
+  return locations[Math.floor(Math.random() * locations.length)];
+};
+
+const generateRandomVehicleNumber = (prefix) => {
+  const digits = "0123456789";
+  const randomDigits = Array.from({ length: 2 }, () => digits.charAt(Math.floor(Math.random() * digits.length))).join('');
+  return `${prefix}-${randomDigits}`;
+};
+
 
 const columns = [
   { field: "id", headerName: "ID Code", width: 120 },
@@ -43,6 +50,18 @@ const columns = [
   {
     field: "location",
     headerName: "Location",
+    width: 150,
+    valueGetter: () => generateRandomLocation(),
+  },
+  {
+    field: "number",
+    headerName: "Number",
+    width: 150,
+    valueGetter: (params) => generateRandomVehicleNumber(params.row.waitingat.startsWith('P') ? 'P' : 'D'),
+  },
+  {
+    field: "location",
+    headerName: "Location",
     width: 160,
   },
   {
@@ -65,33 +84,29 @@ const columns = [
     headerName: "Check-Out",
     width: 150,
   },
+  {
+    field: "waitingat",
+    headerName: "Waiting At",
+    width: 150,
+    
+  },
+  {
+    field: "vehicleNumber",
+    headerName: "Number",
+    width: 150,
+    valueGetter: (params) => {
+      const prefix = params.row.waitingat.startsWith('City') ? 'P' : 'D';
+      return generateRandomVehicleNumber(prefix);
+    },
+  },
 ];
-
-const generateRandomLocation = () => {
-  const locations = ["City A", "City B", "City C", "City D", "City E"];
-  return locations[Math.floor(Math.random() * locations.length)];
-};
-
-const generateRandomVehicleNumber = () => {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const digits = "0123456789";
-  const randomLetters = Array.from({ length: 2 }, () => letters.charAt(Math.floor(Math.random() * letters.length))).join('');
-  const randomDigits = Array.from({ length: 2 }, () => digits.charAt(Math.floor(Math.random() * digits.length))).join('');
-  return `IN-${randomLetters}-${randomDigits}-${randomDigits}`;
-};
 
 const rows = [
-  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
-  { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "09:30 AM", checkOut: "04:30 PM" },
-  { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "10:15 AM", checkOut: "06:45 PM" },
-  { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "11:00 AM", checkOut: "04:00 PM" },
-  { id: "#G5621", visitorimage: "https://i.pravatar.cc/150?img=25", firstName: "Daenerys", lastName: "Targaryen", companyname: "Targaryen Ventures", meetingperson: "Person 5", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "12:30 PM", checkOut: "07:30 PM" },
-  { id: "#G5622", visitorimage: "https://i.pravatar.cc/150?img=36", firstName: "Melisandre", lastName: "None", companyname: "Shadow Mysteries Ltd.", meetingperson: "Person 6", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "02:00 PM", checkOut: "06:00 PM" },
-  { id: "#G5623", visitorimage: "https://i.pravatar.cc/150?img=67", firstName: "Ferrara", lastName: "Clifford", companyname: "Crystal Innovations", meetingperson: "Person 7", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "09:45 AM", checkOut: "05:15 PM" },
-  { id: "#G5624", visitorimage: "https://i.pravatar.cc/150?img=28", firstName: "Rossini", lastName: "Frances", companyname: "Harmonious Harmonies", meetingperson: "Person 8", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Delivery", checkIn: "11:30 AM", checkOut: "04:45 PM" },
-  { id: "#G5625", visitorimage: "https://i.pravatar.cc/150?img=39", firstName: "Harvey", lastName: "Roxie", companyname: "Infinite Ventures", meetingperson: "Person 9", location: generateRandomLocation(), vehicle: generateRandomVehicleNumber(), purpose: "Meeting", checkIn: "01:15 PM", checkOut: "07:00 PM" },
+  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", waitingat: "Parking", vehicle: generateRandomVehicleNumber('City'), purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
+  { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", waitingat: "Dock", vehicle: generateRandomVehicleNumber('City'), purpose: "Delivery", checkIn: "09:30 AM", checkOut: "04:30 PM" },
+  // ... (more rows)
 ];
-  
+
 
 export default function VehicleTable() {
   const Search = styled('div')(({ theme }) => ({
@@ -125,37 +140,26 @@ export default function VehicleTable() {
     },
   }));
 
-  const CustomPagination = () => (
-    <Stack spacing={2}>
-      <Pagination count={10}  />
-    </Stack>
-  );
-
   return (
-    <Container maxWidth="unset" sx={{ mt: 4, mb: 4 ,marginTop:'7.5%'}}>
-    <div style={{ height: "77.6vh", width: "100%" , backgroundColor:'#fff', padding : "1rem 1rem 2.7rem 1rem"}}> 
-    <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center', marginBottom:'5px'}}>
-      <p style={{fontWeight:'bold' , margin:'0'}}>Vehicles</p>
-      <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="Search…"
-        inputProps={{ 'aria-label': 'search' }}
-        // sx={{backgroundColor:'#ccc'}}
-      />
-    </Search>
-    </div>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        
-        // components={{
-        //   Pagination: CustomPagination, // Use the custom pagination component
-        // }}
-      />
-    </div>
+    <Container maxWidth="unset" sx={{ mt: 4, mb: 4, marginTop:'7.5%' }}>
+      <div style={{ height: "77.6vh", width: "100%", backgroundColor:'#fff', padding : "1rem 1rem 2.7rem 1rem" }}> 
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'5px' }}>
+          <p style={{ fontWeight:'bold', margin:'0' }}>Vehicles</p>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+        </div>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+        />
+      </div>
     </Container>
   );
 }

@@ -222,7 +222,6 @@ const DashboardContainer = () => {
     "fa-plus", // Corresponds to "Any Guest ?"
   ];
 
-
   return (
     <Container maxWidth="unset" sx={{ mt: 4, mb: 4 , marginTop:'7.5%' , backgroundColor:'#EFF8FF'}}>
       <Grid container spacing={3} >
