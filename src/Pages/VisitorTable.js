@@ -54,7 +54,7 @@ const columns = [
 ];
 
 const rows = [
-  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=70", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
+  { id: "#G5617", visitorimage: "https://i.pravatar.cc/150?img=1", firstName: "Jon", lastName: "Snow", companyname: "Stark Industries", meetingperson: "Person 1", purpose: "Meeting", checkIn: "08:00 AM", checkOut: "05:00 PM" },
   { id: "#G5618", visitorimage: "https://i.pravatar.cc/150?img=50", firstName: "Cersei", lastName: "Lannister", companyname: "Lannister Holdings", meetingperson: "Person 2", purpose: "Delivery", checkIn: "09:30 AM", checkOut: "04:30 PM" },
   { id: "#G5619", visitorimage: "https://i.pravatar.cc/150?img=13", firstName: "Jaime", lastName: "Lannister", companyname: "Golden Hand Enterprises", meetingperson: "Person 3", purpose: "Meeting", checkIn: "10:15 AM", checkOut: "06:45 PM" },
   { id: "#G5620", visitorimage: "https://i.pravatar.cc/150?img=34", firstName: "Arya", lastName: "Stark", companyname: "Faceless Co.", meetingperson: "Person 4", purpose: "Delivery", checkIn: "11:30 AM", checkOut: "03:15 PM" },
