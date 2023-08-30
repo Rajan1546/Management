@@ -130,7 +130,7 @@ export default function Forms() {
           </AppBar>
         </Grid>
       </Container>
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+      <Container component="main" maxWidth="unset" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
           sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } , backgroundColor:'F1F9FB' }}
