@@ -9,6 +9,7 @@ import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOutlined";
+import CardProfile from "./CardProfile";
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
   width: 37,
@@ -32,7 +33,12 @@ export default function VehicleForm() {
   };
   
   return (
-    <React.Fragment>
+    
+      <div style={{display:'flex' , gap:'4rem'}}>
+      <div style={{backgroundColor:'#fff', border:'1px solid', padding:'2%'}}>
+      <CardProfile/>
+      </div>
+      <div style={{backgroundColor:'#fff', border:'1px solid', padding:'2%'}}>
       <Typography component="h1" variant="h5" align="center" gutterBottom>
         Vehicle Details
       </Typography>
@@ -174,6 +180,7 @@ export default function VehicleForm() {
           /> 
         </Grid>*/}
       </Grid>
-    </React.Fragment>
+      </div>
+      </div>
   );
 }

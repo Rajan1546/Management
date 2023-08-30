@@ -32,7 +32,7 @@ import gati from "../Images/gati.png";
 // import Docks from "./Docks";
 // import VisitorTable from "./VisitorTable";
 // import VehicleTable from "./VehicleTable";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // const drawerWidth = 240;
 
@@ -94,12 +94,12 @@ import gati from "../Images/gati.png";
 //   };
 
 //   const [selectedComponent, setSelectedComponent] = React.useState("dashboard");
-//   const navigate = useNavigate(); // Initialize the useNavigate hook
+  // const navigate = useNavigate(); // Initialize the useNavigate hook
 
-//   const handleAddButtonClick = () => {
-//     // Handle the "Add" button click and navigate to the "/arriving" route
-//     navigate("/");
-//   };
+  // const handleAddButtonClick = () => {
+  //   // Handle the "Add" button click and navigate to the "/arriving" route
+  //   navigate("/");
+  // };
 //   const renderSelectedComponent = () => {
 //     switch (selectedComponent) {
 //       case "dashboard":
@@ -276,6 +276,8 @@ import PendingActions from "./PendingActions";
 import VehicleTable from "./VehicleTable";
 import VisitorTable from "./VisitorTable";
 import Docks from "./Docks";
+import Forms from "./Forms";
+import InOut from "./InOut";
 
 const HomeContent = () => <div>Home Content</div>;
 const AboutContent = () => <div>About Content</div>;
@@ -296,7 +298,12 @@ const Dashboard = () => {
   }, []);
 
   const [activeContent, setActiveContent] = useState(<DashboardContainer />);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
+  const handleAddButtonClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/");
+  };
   const handleNavigationClick = (contentComponent) => {
     setActiveContent(contentComponent);
   };
@@ -386,13 +393,12 @@ const Dashboard = () => {
                 </a>
               </li>
               <li>
-                <a href="#" onClick={() => handleNavigationClick(<Docks />)}>
-                  Dock
+                <a href="#" onClick={() => handleNavigationClick(<InOut/>)}>
+                  Add
                 </a>
               </li>
             </ul>
           </div>
-
           <div className="darkLight-searchBox">
             {/* <div className="dark-light">
             <i
@@ -415,7 +421,7 @@ const Dashboard = () => {
             <IconButton color="inherit" sx={{ alignItems: "center" }}>
               <PowerSettingsNewOutlinedIcon sx={{ color: "white" }} />
               <Typography
-                sx={{ marginLeft: "4%", fontWeight: 500, color: "white" }}
+                sx={{ marginLeft: "4%", fontWeight: 500, color: "white" }} onClick={handleAddButtonClick}
               >
                 Logout
               </Typography>
