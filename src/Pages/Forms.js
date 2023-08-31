@@ -92,7 +92,7 @@ export default function Forms() {
                   }}
           />
           </Typography>
-          <Typography sx={{ fontWeight:500 ,display:'flex', alignItems:'center'}} onClick={handleAddButtonClick}>
+          <Typography sx={{ fontWeight:500 ,display:'flex', alignItems:'center', cursor:'pointer'}} onClick={handleAddButtonClick}>
           <PowerSettingsNewOutlinedIcon sx={{marginRight:'4%'}}/>
             Logout
           </Typography>
@@ -148,6 +148,7 @@ export default function Forms() {
         </Paper>
         <Copyright />
       </Container>
+
     </React.Fragment>
     </div>
   );

@@ -102,9 +102,9 @@ class CardProfile extends Component {
   render() {
     const { imagePreviewUrl, name, status, active } = this.state;
     return (
-      <div>
+      <div className='Profile'>
         {active === 'edit' ? (
-          <Edit onSubmit={this.handleSubmit}>
+          <Edit onSubmit={this.handleSubmit} active={active}>
             <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl} />
           </Edit>
         ) : (

@@ -194,12 +194,12 @@ const Parking = () => {
 
   return (
     <div className="movie-container">
-      <label>Pick a movie: </label>
+      <label>Pick a parking: </label>
       <select id="movie" onChange={handleMovieChange}>
-        <option value="250">Interstellar (Rs. 250)</option>
-        <option value="200">Kabir Singh (Rs. 200)</option>
-        <option value="150">Duniyadari (Rs. 150)</option>
-        <option value="100">Natsamrat (Rs. 100)</option>
+        <option value="250">Parking </option>
+        <option value="200">Dock </option>
+        {/* <option value="150">Duniyadari (Rs. 150)</option>
+        <option value="100">Natsamrat (Rs. 100)</option> */}
       </select>
 
       <ul className="showcase">
@@ -222,7 +222,7 @@ const Parking = () => {
           {generateSeats()}
         </div>
         <p className="text">
-          You have selected <span id="count">{selectedSeats.length}</span> seats for the total price of Rs.{' '}
+          You have selected <span id="count">{selectedSeats.length}</span> Parking for the Vehicle  {' '}
           <span id="total">{selectedSeats.length * ticketPrice}</span>
         </p>
       </div>

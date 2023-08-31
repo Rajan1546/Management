@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
+import Container from "@mui/material/Container";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
@@ -32,6 +33,7 @@ export default function VisitorForm() {
   };
   return (
     <React.Fragment>
+      <Container component="main" maxWidth="xs">
       <Typography component="h1" variant="h5" align="center" gutterBottom>
         Visitor Details
       </Typography>
@@ -173,6 +175,7 @@ export default function VisitorForm() {
           /> 
         </Grid>*/}
       </Grid>
+      </Container>
     </React.Fragment>
   );
 }

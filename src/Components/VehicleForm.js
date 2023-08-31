@@ -35,25 +35,25 @@ export default function VehicleForm() {
   return (
     
       <div style={{display:'flex' , gap:'4rem'}}>
-      <div style={{backgroundColor:'#fff', border:'1px solid', padding:'2%'}}>
+      <div style={{backgroundColor:'#fff',  padding:'1%'}}>
       <CardProfile/>
       </div>
-      <div style={{backgroundColor:'#fff', border:'1px solid', padding:'2%'}}>
+      <div style={{backgroundColor:'#fff', padding:'1%'}}>
       <Typography component="h1" variant="h5" align="center" gutterBottom>
         Vehicle Details
       </Typography>
       {/* <Typography variant="h6" gutterBottom>
         Shipping address
       </Typography> */}
-      <Stack direction="row" spacing={2} justifyContent={"center"} gutterBottom>
+      {/* <Stack direction="row" spacing={2} justifyContent={"center"} gutterBottom>
         <Badge
           overlap="circular"
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           badgeContent={
             //   <SmallAvatar alt="Remy Sharp" src={ <PhotoCameraFrontOutlinedIcon color="success" />} />
-            // {/*<SmallAvatar>
+            // <SmallAvatar>
             //   <PhotoCameraFrontOutlinedIcon color="grey" />
-            // </SmallAvatar>*/}
+            // </SmallAvatar>
             <SmallAvatar>
             <label htmlFor="fileInput">
               <PhotoCameraFrontOutlinedIcon color="grey" />
@@ -74,7 +74,7 @@ export default function VehicleForm() {
             sx={{ width: 100, height: 100 }}
           />
         </Badge>
-      </Stack>
+      </Stack> */}
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
