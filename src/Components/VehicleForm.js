@@ -34,7 +34,8 @@ export default function VehicleForm() {
   
   return (
     
-      <div style={{display:'flex' , gap:'4rem'}}>
+      <div style={{display:'flex' , gap:'1rem'}}>
+        
       <div style={{backgroundColor:'#fff',  padding:'1%'}}>
       <CardProfile/>
       </div>
