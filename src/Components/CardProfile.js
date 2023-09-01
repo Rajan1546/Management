@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import './CardProfile.css'; // Import your CSS file
-
+import React, { Component } from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import "./CardProfile.css";
 const ImgUpload = ({ onChange, src }) => (
   <label htmlFor="photo-upload" className="custom-file-upload fas">
     <div className="img-wrap img-upload">
@@ -72,12 +75,29 @@ const Edit = ({ onSubmit, children }) => (
 
 class CardProfile extends Component {
   state = {
-    file: '',
-    imagePreviewUrl:
-      'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true',
-    name: '',
-    status: '',
-    active: 'edit',
+    file: "",
+    imagePreviewUrl: "https://img.icons8.com/?size=512&id=12666&format=png",
+    name: "",
+    status: "",
+    active: "edit",
+    selectedOption: "Parking", // Default selected radio button option
+    selectedPlaceholder: "", // Default selected dropdown placeholder
+  };
+
+  handleRadioChange = (event) => {
+    const selectedOption = event.target.value;
+    this.setState({ selectedOption });
+
+    // Update the selectedPlaceholder based on the selected radio button option
+    if (selectedOption === "Parking") {
+      this.setState({ selectedPlaceholder: "P-5" });
+    } else if (selectedOption === "Dock") {
+      this.setState({ selectedPlaceholder: "D-3" });
+    }
+  };
+
+  handlePlaceholderChange = (event) => {
+    this.setState({ selectedPlaceholder: event.target.value });
   };
 
   photoUpload = (e) => {
@@ -96,16 +116,24 @@ class CardProfile extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // Handle the form submission here
-    console.log('Form submitted');
+    console.log("Form submitted");
   };
 
   render() {
-    const { imagePreviewUrl, name, status, active } = this.state;
+    const {
+      imagePreviewUrl,
+      name,
+      status,
+      active,
+      selectedOption,
+      selectedPlaceholder,
+    } = this.state;
     return (
-      <div className='Profile'>
-        {active === 'edit' ? (
+      <div className="Profile">
+        {active === "edit" ? (
           <Edit onSubmit={this.handleSubmit} active={active}>
             <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl} />
+            
           </Edit>
         ) : (
           <Profile

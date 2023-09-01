@@ -1,8 +1,8 @@
 .card{
     /* width: 310px; */
     /* height: 327px; */
-    padding: 15px;
-    margin-top: 40px;
+    /* padding: 15px; */
+    /* margin-top: 40px; */
     /* border-radius: 25px; */
     border: unset !important;
     display: flex;
@@ -36,21 +36,21 @@
   }
   
   .custom-file-upload {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     display: inline-block;
     position: relative;
     padding: 6px;
     cursor: pointer;
-    background: linear-gradient(270deg, #3fa1a9, #79f1a4);
-    margin-bottom: 25px;
+    /* background: linear-gradient(270deg, #3fa1a9, #79f1a4);
+    margin-bottom: 25px; */
   }
   
   .img-wrap{
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 350px;
     overflow: hidden;
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
   .img-upload:before{
     content: "\f093";
@@ -61,7 +61,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     /* text-align: center; */
-    color: #63d3a6;
+    /* color: #63d3a6; */
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -73,8 +73,17 @@
    opacity: 1;
   } */
   .Profile img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height:100%;
+    object-fit: contain;
+  }
+  .radio-group label {
+    /* display: block; */
+    margin: 5px 5px 10px 5px; /* Adjust the margin to add the desired gap */
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px; /* Adjust the margin to add the desired gap between radio selector and label */
   }
   
   /* label{

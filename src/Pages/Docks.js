@@ -56,7 +56,7 @@
 
 
 import React from "react";
-import "./Docks.css"; // Import your NewsCard.css file
+ // import "./Docks.css";Import your NewsCard.css file
 
 const NewsCard = ({ tag, time, title, creator }) => {
   const cardStyles = `
