@@ -64,26 +64,25 @@ export default function Forms() {
   const [parkingCode, setParkingCode] = React.useState("");
   const [selectedOption, setSelectedOption] = React.useState("Parking"); // New state for selected radio button option
 
-  
-  
   const handleChange = (event) => {
     setParkingCode(event.target.value);
   };
 
-  const options = selectedOption === "Parking"
-  ? [
-      { value: 10, label: "P-3" },
-      { value: 20, label: "P-4" },
-      { value: 30, label: "P-5" },
-      { value: 40, label: "P-7" },
-      { value: 50, label: "P-11" },
-    ]
-  : [
-      { value: 60, label: "D-3" },
-      { value: 70, label: "D-7" },
-      { value: 80, label: "D-8" },
-      { value: 90, label: "D-11" },
-    ];
+  const options =
+    selectedOption === "Parking"
+      ? [
+          { value: 10, label: "P-3" },
+          { value: 20, label: "P-4" },
+          { value: 30, label: "P-5" },
+          { value: 40, label: "P-7" },
+          { value: 50, label: "P-11" },
+        ]
+      : [
+          { value: 60, label: "D-3" },
+          { value: 70, label: "D-7" },
+          { value: 80, label: "D-8" },
+          { value: 90, label: "D-11" },
+        ];
 
   const handleTabType = (event, newValue) => {
     setActiveTab(newValue);
@@ -98,7 +97,6 @@ export default function Forms() {
     // Handle the "Add" button click and navigate to the "/arriving" route
     navigate("/");
   };
-  
 
   const renderFormComponent = () => {
     switch (activeTab) {
@@ -203,68 +201,67 @@ export default function Forms() {
             }}
           >
             {renderFormComponent()}
-            <div>
-              <div>
-                <Divider
-                  variant="middle"
-                  sx={{
-                    borderBottom: "2px dashed #ccc", // Add the dashed style here
-                    margin: "0 auto", // Center the divider horizontally
-                  }}
-                />
-                <Typography
-                  variant="h6"
-                  sx={{ textAlign: "center" }}
-                  gutterBottom
-                >
-                  Parking Details
-                </Typography>
-                <div style={{ textAlign: "center" }}>
-                  <FormControl>
-                    <FormLabel
-                      id="demo-row-radio-buttons-group-label"
-                      sx={{ textAlign: "start" }}
-                    >
-                      Bay
-                    </FormLabel>
-                    <RadioGroup
-                      row
-                      aria-labelledby="demo-row-radio-buttons-group-label"
-                      name="row-radio-buttons-group"
-                      value={selectedOption} // Use the new state for radio button value
-                      onChange={handleRadioChange}
-                    >
-                      <FormControlLabel
-                        value="Parking" // Use "Parking" (with uppercase) as the value
-                        control={<Radio />}
-                        label="Parking"
-                      />
-                      <FormControlLabel
-                        value="Dock" // Use "Dock" (with uppercase) as the value
-                        control={<Radio />}
-                        label="Dock"
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                  <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-standard-label">
-                      Code
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-standard-label"
-                      id="demo-simple-select-standard"
-                      value={parkingCode}
-                      onChange={handleChange}
-                      label="Age"
-                    >
-                      {options.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </div>
+
+            <div className={activeTab === 0 ? "parking-details" : "hidden"}>
+              <Divider
+                variant="middle"
+                sx={{
+                  borderBottom: "2px dashed #ccc", // Add the dashed style here
+                  margin: "0 auto", // Center the divider horizontally
+                }}
+              />
+              <Typography
+                variant="h6"
+                sx={{ textAlign: "center" }}
+                gutterBottom
+              >
+                Parking Details
+              </Typography>
+              <div style={{ textAlign: "center" }}>
+                <FormControl>
+                  <FormLabel
+                    id="demo-row-radio-buttons-group-label"
+                    sx={{ textAlign: "start" }}
+                  >
+                    Bay
+                  </FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    value={selectedOption} // Use the new state for radio button value
+                    onChange={handleRadioChange}
+                  >
+                    <FormControlLabel
+                      value="Parking" // Use "Parking" (with uppercase) as the value
+                      control={<Radio />}
+                      label="Parking"
+                    />
+                    <FormControlLabel
+                      value="Dock" // Use "Dock" (with uppercase) as the value
+                      control={<Radio />}
+                      label="Dock"
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                  <InputLabel id="demo-simple-select-standard-label">
+                    Code
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={parkingCode}
+                    onChange={handleChange}
+                    label="Age"
+                  >
+                    {options.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
             </div>
             <Box sx={{ display: "flex", justifyContent: "flex-end" }}>

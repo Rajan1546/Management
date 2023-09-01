@@ -76,7 +76,7 @@ const Edit = ({ onSubmit, children }) => (
 class CardProfile extends Component {
   state = {
     file: "",
-    imagePreviewUrl: "https://img.icons8.com/?size=512&id=12666&format=png",
+    imagePreviewUrl: "https://cdn.dribbble.com/users/21402/screenshots/4614593/media/0d4cba464a2dd86a54243911253d3f08.gif",
     name: "",
     status: "",
     active: "edit",
