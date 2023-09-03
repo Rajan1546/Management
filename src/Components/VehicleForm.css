@@ -1,0 +1,6 @@
+@media (max-width: 600px) {
+.vehicle-main{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+}

@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOutlined";
 import CardProfile from "./CardProfile";
-
+import './VehicleForm.css'
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
   width: 37,
   height: 37,
@@ -34,7 +34,7 @@ export default function VehicleForm() {
   
   return (
     
-      <div style={{display:'flex' , gap:'1rem'}}>
+      <div className="vehicle-main" style={{display:'flex' , gap:'1rem'}}>
         
       <div style={{backgroundColor:'#fff',  padding:'1%'}}>
       <CardProfile/>

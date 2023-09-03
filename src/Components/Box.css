@@ -6,7 +6,10 @@
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   color: #9e9e9e;
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   margin: 0% 0 5% 0 ;
@@ -19,7 +22,6 @@
   background-color: #ffffff;
   border-radius: 5px;
   border-top: 5px solid #1976D2;
-  
 }
 
 .snip1533 *,
@@ -35,8 +37,8 @@
 }
 
 /* Corresponding classes for Font Awesome icons */
-.snip1533.fa-car figcaption:before {
-  content: "\f1b9"; /* Unicode code for car icon */
+/* .snip1533.fa-car figcaption:before {
+  content: "\f1b9";  
 }
 
 .snip1533.fa-user figcaption:before {
@@ -44,12 +46,12 @@
 }
 
 .snip1533.fa-bus figcaption:before {
-  content: "\f1b9"; /* Unicode code for bus icon */
+  content: "\f1b9";  
 }
 
 .snip1533.fa-plus figcaption:before {
-  content: "\f059"; /* Unicode code for plus icon */
-}
+  content: "\f059"; 
+} */
 
 /* Rest of your existing CSS properties */
 .snip1533 figcaption:before {
@@ -109,7 +111,15 @@
     font-weight: 600;
     /* opacity: 0.5; */
   }
-
+  .snip1533 {
+    display: inline-block;
+  }
+  .css-wxti4m-MuiAvatar-root{
+    margin: 2% 0  0 35% !important;
+  }
+  .css-zgbgq3-MuiContainer-root{
+    margin-top: 25% !important;
+  }
 }
 
 /* Ensure the transition applies to all screens */

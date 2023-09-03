@@ -169,8 +169,9 @@ import { red } from "@mui/material/colors";
 import StaffTable from "./StaffTable";
 import "./Box.css";
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Avatar from "@mui/material/Avatar";
 
 function Copyright(props) {
   return (
@@ -215,15 +216,8 @@ const DashboardContainer = () => {
     { title: "Any Guest ?", count: "", button: true },
   ];
 
-  const iconClasses = [
-    "fa-car", // Corresponds to "Total Entry"
-    "fa-user", // Corresponds to "Visitors"
-    "fa-bus", // Corresponds to "Vehicles"
-    "fa-plus", // Corresponds to "Any Guest ?"
-  ];
-
   return (
-    <Container maxWidth="unset" sx={{ mt: 4, mb: 4 , marginTop:'7.5%' , backgroundColor:'#EFF8FF'}}>
+    <Container maxWidth="unset" sx={{ mt: 4, mb: 4, marginTop: '7.5%', backgroundColor: '#EFF8FF' }}>
       <Grid container spacing={3} >
         {cardData.map((card, index) => (
           <Grid item xs={6} md={3} lg={3} key={index}>
@@ -235,27 +229,32 @@ const DashboardContainer = () => {
                 height: 240,
               }}
             > */}
-              <figure className={`snip1533 ${iconClasses[index]}`}>
-                <figcaption>
-                  {/* <div className="icon-container">
+            <figure className='snip1533'>
+              {/* <figcaption> */}
+              {/* <div className="icon-container">
                     {card.icon} 
                   </div> */}
-                  <h3 style={{ textDecoration: "#9e9e9e" }}>{card.title}</h3>
-                  <blockquote>
-                    <h1>{card.count}</h1>
-                  </blockquote>
-                  {card.button && (
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      sx={{ margin: '12px 0px' }}
-                      onClick={handleAddButtonClick}
-                    >
-                      Add
-                    </Button>
-                  )}
-                </figcaption>
-              </figure>
+              <Avatar sx={{ width:'55px' , height:'55px' }}>
+                {card.title.slice(0, 1)}
+              </Avatar>
+              <div>
+              <h3 style={{ textDecoration: "#9e9e9e" }}>{card.title}</h3>
+              <blockquote>
+                <h1>{card.count}</h1>
+              </blockquote>
+              {card.button && (
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  sx={{ margin: '12px 0px' }}
+                  onClick={handleAddButtonClick}
+                >
+                  Add
+                </Button>
+              )}
+              </div>
+              {/* </figcaption> */}
+            </figure>
             {/* </Paper> */}
           </Grid>
         ))}
@@ -275,3 +274,93 @@ const DashboardContainer = () => {
 };
 
 export default DashboardContainer;
+
+
+// import React from "react";
+// import Container from "@mui/material/Container";
+// import Link from "@mui/material/Link";
+// import Grid from "@mui/material/Grid";
+// import Paper from "@mui/material/Paper";
+// import Typography from "@mui/material/Typography";
+// import { red } from "@mui/material/colors";
+// import StaffTable from "./StaffTable";
+// import "./Box.css";
+// import Button from '@mui/material/Button';
+// import { useNavigate } from "react-router-dom";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+// import Box from '@mui/material/Box';
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+
+// function Copyright(props) {
+//   return (
+//     <Typography
+//       variant="body2"
+//       color="text.secondary"
+//       align="center"
+//       {...props}
+//     >
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://werqlabs.com/">
+//         Made with
+//         <FavoriteIcon
+//           sx={{
+//             height: 15,
+//             width: 15,
+//             color: red[500],
+//             verticalAlign: "middle",
+//           }}
+//         />
+//         by WerqLabs
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
+
+// // ... (other imports)
+
+// const DashboardContainer = () => {
+//   const navigate = useNavigate();
+
+//   const handleAddButtonClick = () => {
+//     navigate("/arriving");
+//   };
+
+//   const cardData = [
+//     { title: "Total Entry", count: 174 },
+//     { title: "Visitors", count: 98 },
+//     { title: "Vehicles", count: 76 },
+//     { title: "Any Guest ?", count: "", button: true },
+//   ];
+
+//   const iconClasses = [
+//     "fa-car", // Corresponds to "Total Entry"
+//     "fa-user", // Corresponds to "Visitors"
+//     "fa-bus", // Corresponds to "Vehicles"
+//     "fa-plus", // Corresponds to "Any Guest ?"
+//   ];
+
+//   return (
+//     <Container maxWidth="unset" sx={{ mt: 4, mb: 4 , marginTop:'7.5%' , backgroundColor:'#EFF8FF'}}>
+//       <Grid container spacing={3}>
+//       <Grid>
+//       </Grid>
+//         {/* Recent Orders */}
+//         <Grid item xs={12}>
+//           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+//             <Typography sx={{ fontSize: 20, fontWeight: 600 }}>
+//               Staff Working :
+//             </Typography>
+//             <StaffTable />
+//           </Paper>
+//         </Grid>
+//       </Grid>
+//       <Copyright sx={{ pt: 4 }} />
+//     </Container>
+//   );
+// };
+
+// export default DashboardContainer;
+
