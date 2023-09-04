@@ -78,7 +78,13 @@
     object-fit: contain;
   }
   
-  
+  @media (max-width: 600px) {
+    .img-wrap{
+      width: 320px;
+      height: 250px;
+    }
+    }
+
   /* label{
     text-transform: uppercase;
     font-weight: 700;

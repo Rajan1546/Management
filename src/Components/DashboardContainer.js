@@ -213,7 +213,7 @@ const DashboardContainer = () => {
     { title: "Total Entry", count: 174 },
     { title: "Visitors", count: 98 },
     { title: "Vehicles", count: 76 },
-    { title: "Any Guest ?", count: "", button: true },
+     { title: "Dock Vehicles", count: 56,},//list: ["Vehicles : 39", "Visitors : 23"]
   ];
 
   return (
@@ -242,15 +242,12 @@ const DashboardContainer = () => {
               <blockquote>
                 <h1>{card.count}</h1>
               </blockquote>
-              {card.button && (
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  sx={{ margin: '12px 0px' }}
-                  onClick={handleAddButtonClick}
-                >
-                  Add
-                </Button>
+              {card.list && (
+                <ul style={{fontSize:'18px'}}>
+                  {card.list.map((item, itemIndex) => (
+                    <li key={itemIndex} style={{listStyle:'none'}}>{item}</li>
+                  ))}
+                </ul>
               )}
               </div>
               {/* </figcaption> */}
