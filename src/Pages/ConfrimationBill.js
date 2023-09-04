@@ -98,7 +98,7 @@ export default function ConfirmationBill() {
 
   const handleAddButtonClick = () => {
     // Handle the "Add" button click and navigate to the "/arriving" route
-    navigate("/arriving");
+    navigate("/dashboard");
   };
   return (
     

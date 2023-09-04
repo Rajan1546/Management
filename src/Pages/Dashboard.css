@@ -89,6 +89,11 @@ nav .nav-bar .sidebarOpen{
     display: none;
 }
 
+/* .logoImgnavLogo{
+    display: "flex";
+    justify-content: "center";
+    width: "8.5%";
+} */
 /* nav .nav-bar .logo a{
     font-size: 25px;
     font-weight: 500;
@@ -308,4 +313,10 @@ body.dark .search-field i{
         display: block;
         margin-top: 20px;
     }
+
+    /* .logoImgnavLogo{
+        width: 120px;
+        display: flex;
+        align-items: center;
+    } */
 }

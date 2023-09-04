@@ -336,8 +336,8 @@ const Dashboard = () => {
         <div className={`nav-bar`}>
           <i className="bx bx-menu sidebarOpen" onClick={toggleSidebar}></i>
           <span
-            className="logo navLogo"
-            style={{ width: "8.5%", display: "flex", justifyContent: "center" }}
+            className="logoImgnavLogo"
+             style={{ width: "8.5%", display: "flex", justifyContent: "center" }}
           >
             <img src={gati} alt="Dashboard Main Logo" width="100%" />
           </span>
