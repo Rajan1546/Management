@@ -20,6 +20,11 @@ function InOut() {
     // Handle the "Add" button click and navigate to the "/arriving" route
     navigate("/");
   };
+
+  const handleCheckOutClick = () => {
+    // Handle the "Add" button click and navigate to the "/arriving" route
+    navigate("/checkout");
+  };
   return (
     <div className="video-container"> 
     <div className='nav-container'>
@@ -39,7 +44,7 @@ function InOut() {
       <Button variant="outlined" endIcon={<img src={checkin} alt='CheckIn' width={'50px'} />} onClick={handleCheckInClick}>
       Check In
       </Button>
-        <Button variant="outlined" endIcon={<img src={hotel} alt='CheckOut' width={'50px'}/>}>
+        <Button variant="outlined" endIcon={<img src={hotel} alt='CheckOut' width={'50px'}/>} onClick={handleCheckOutClick}>
         Check Out
       </Button>
       </div>

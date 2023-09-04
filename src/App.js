@@ -10,6 +10,7 @@ import Forms from './Pages/Forms'
 import BadgeAvatars from './Components/Icon';
 import ConfirmationBill from './Pages/ConfrimationBill';
 import Box from './Components/Box';
+import CheckOut from './Pages/CheckOut';
 // import CardProfile from './Components/CardProfile';
 // import Box from './Components/Box';
 // import Parking from './Components/Parking';
@@ -26,6 +27,7 @@ function App() {
       <Route path='/forms' element={<Forms/>}/>
       <Route path='/box' element={<Box/>}/>
       <Route path='/confirmation' element={<ConfirmationBill/>}/>
+      <Route path='/checkout' element={<CheckOut/>}/>
       {/* <Route path='/hello' element={<CardProfile/>}/> */}
       {/* <Route path='/Parking' element={<Parking/>}/> */}
       </Routes>
