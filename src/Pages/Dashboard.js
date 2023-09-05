@@ -393,7 +393,7 @@ const Dashboard = () => {
                 </a>
               </li>
               <li>
-                <a href="#" onClick={() => handleNavigationClick(<InOut/>)}>
+                <a href="#" onClick={() => handleNavigationClick(<Forms/>)}>
                   Add
                 </a>
               </li>

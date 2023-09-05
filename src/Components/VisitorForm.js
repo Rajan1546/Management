@@ -192,6 +192,8 @@ import Stack from "@mui/material/Stack";
 import PhotoCameraFrontOutlinedIcon from "@mui/icons-material/PhotoCameraFrontOutlined";
 import CardProfile from "./CardProfile";
 import './VehicleForm.css'
+import Webcam from "react-webcam";
+import profile from "../Images/Profile.png";
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
   width: 37,
@@ -214,12 +216,59 @@ export default function VisitorForm() {
     }
   };
   
+  const webcamRef = React.useRef(null);
+  const [capturedImage, setCapturedImage] = React.useState(null);
+  const [showCamera, setShowCamera] = React.useState(false);
+
+  const capture = () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setCapturedImage(imageSrc);
+    setShowCamera(false);
+  };
+
+  const handleUploadClick = () => {
+    // Implement your file upload logic here
+    // For example, you can use an input element to trigger file selection
+    // and set the 'capturedImage' state with the selected file.
+  };
+  // const capture = () => {
+  //   const imageSrc = webcamRef.current.getScreenshot();
+  //   // 'imageSrc' contains the captured image data, you can use it as needed
+  //   console.log("Captured Image:", imageSrc);
+  // };
+
   return (
     
       <div className="vehicle-main" style={{display:'flex' , gap:'1rem'}}>
         
-      <div style={{backgroundColor:'#fff',  padding:'1%'}}>
-      <CardProfile/>
+      <div style={{backgroundColor:'#fff',  padding:'1%' }}>
+      {/* <CardProfile/> */}
+      {showCamera ? (
+        <div>
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+          />
+          <button onClick={capture}>Capture Photo</button>
+        </div>
+      ) : (
+        <div>
+          <img
+            src={capturedImage || profile }
+            alt="Captured"
+            style={{ height: "15rem" }}
+            className="captured-image"
+          />
+          {!capturedImage ? (
+            <div>
+              <input type="file" accept="image/*" onChange={handleUploadClick} />
+              <p>Or</p>
+              <button onClick={() => setShowCamera(true)}>Open Camera</button>
+            </div>
+          ) : null}
+        </div>
+      )}
       </div>
       <div style={{backgroundColor:'#fff', padding:'1%'}}>
       <Typography component="h1" variant="h5" align="center" gutterBottom>

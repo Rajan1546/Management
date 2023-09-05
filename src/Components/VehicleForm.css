@@ -3,4 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.captured-image{
+    height: 10rem;
+}
 }

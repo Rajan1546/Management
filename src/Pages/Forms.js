@@ -124,6 +124,8 @@ export default function Forms() {
           sx={{
             position: "relative",
             borderBottom: (t) => `1px solid ${t.palette.divider}`,
+            minHeight:'70px',
+            
           }}
         >
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -192,6 +194,7 @@ export default function Forms() {
           </Grid>
         </Container>
         <Container component="main" maxWidth="lg" sx={{ mb: 4 }}>
+          
           <Paper
             variant="outlined"
             sx={{
@@ -200,6 +203,7 @@ export default function Forms() {
               backgroundColor: "F1F9FB",
             }}
           >
+            
             {renderFormComponent()}
 
             <div className={activeTab === 0 ? "parking-details" : "hidden"}>

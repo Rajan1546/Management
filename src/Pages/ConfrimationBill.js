@@ -118,7 +118,7 @@ export default function ConfirmationBill() {
             <LockOutlinedIcon />
           </Avatar> */}
           <Typography component="h1" variant="h5">
-            Confrimation Pass
+            Confirmation Pass
           </Typography>
           <Divider sx={{ width: '100%', margin: 'auto', my: 2, borderBottom: '1.5px solid rgba(0, 0, 0, 0.38)' }} />
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1  , textAlign: 'center', width:'100%'}}>
