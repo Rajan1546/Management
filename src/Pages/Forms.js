@@ -129,7 +129,7 @@ export default function Forms() {
           }}
         >
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="h6" color="inherit" noWrap>
+            {/*<Typography variant="h6" color="inherit" noWrap>
               <img
                 src={gati}
                 alt="Main Logo"
@@ -140,7 +140,7 @@ export default function Forms() {
                 }}
               />
             </Typography>
-            <Typography
+             <Typography
               sx={{
                 fontWeight: 500,
                 display: "flex",
@@ -151,7 +151,7 @@ export default function Forms() {
             >
               <PowerSettingsNewOutlinedIcon sx={{ marginRight: "4%" }} />
               Logout
-            </Typography>
+            </Typography> */}
           </Toolbar>
         </AppBar>
         <Container>

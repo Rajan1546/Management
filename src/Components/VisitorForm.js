@@ -261,10 +261,10 @@ export default function VisitorForm() {
             className="captured-image"
           />
           {!capturedImage ? (
-            <div>
+            <div style={{display:'flex' , justifyContent:'center'}}>
               <input type="file" accept="image/*" onChange={handleUploadClick} />
-              <p>Or</p>
-              <button onClick={() => setShowCamera(true)}>Open Camera</button>
+              {/* <p>Or</p> */}
+              <button onClick={() => setShowCamera(true)} style={{padding:'5px' , borderRadius:"10px" , border:'none', backgroundColor:'#1976d2' , color:'#fff'}}>Open Camera</button>
             </div>
           ) : null}
         </div>

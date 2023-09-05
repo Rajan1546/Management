@@ -89,6 +89,9 @@ nav .nav-bar .sidebarOpen{
     display: none;
 }
 
+.css-1umot45-MuiPaper-root-MuiAppBar-root{
+    background-color: transparent !important;
+}
 /* .logoImgnavLogo{
     display: "flex";
     justify-content: "center";
