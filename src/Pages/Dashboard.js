@@ -336,15 +336,18 @@ const Dashboard = () => {
         <div className={`nav-bar`}>
           <i className="bx bx-menu sidebarOpen" onClick={toggleSidebar}></i>
           <span
-            className="logoImgnavLogo"
+            
              style={{ width: "8.5%", display: "flex", justifyContent: "center" }}
           >
-            <img src={gati} alt="Dashboard Main Logo" width="100%" />
+            <img src={gati} alt="Dashboard Main Logo" width="100%" className="logoImgnavLogo"/>
           </span>
         
           <div className="menu">
             <div className="logo-toggle">
-              <span className="logo">
+              <span className="logo" style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>
                 <img
                   src={gati}
                   alt="Dashboard Main Logo"

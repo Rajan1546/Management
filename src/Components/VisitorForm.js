@@ -250,7 +250,7 @@ export default function VisitorForm() {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
           />
-          <button onClick={capture}>Capture Photo</button>
+          <button onClick={capture} style={{padding:'5px' , borderRadius:"10px" , border:'none', backgroundColor:'#1976d2' , color:'#fff'}}>Capture Photo</button>
         </div>
       ) : (
         <div>

@@ -317,9 +317,9 @@ body.dark .search-field i{
         margin-top: 20px;
     }
 
-    /* .logoImgnavLogo{
+    .logoImgnavLogo{
         width: 120px;
-        display: flex;
-        align-items: center;
-    } */
+        /* display: flex;
+        align-items: center; */
+    }
 }
